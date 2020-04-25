@@ -2,9 +2,9 @@ import * as vscode from 'vscode';
 
 import createComponent from './createComponent';
 
-const handleCreateComponent = async (args: any, styled?: boolean) => {
+const handleCreateComponent = async (args: any, styled?: boolean, mobile?: boolean) => {
   const componentName = await vscode.window.showInputBox({
-    prompt: `Component name`,
+    prompt: `Enter the component name:`,
     ignoreFocusOut: true,
     valueSelection: [-1, -1]
   });
@@ -15,19 +15,25 @@ const handleCreateComponent = async (args: any, styled?: boolean) => {
 
   if (args) {
     const path = args.fsPath;
-    createComponent(componentName, { dir: path, styled });
+    createComponent(componentName, { dir: path, styled, mobile });
   } else {
-    createComponent(componentName, { styled });
+    createComponent(componentName, { styled, mobile });
   }
 };
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = [
-    vscode.commands.registerCommand("extension.create-component", args => {
+    vscode.commands.registerCommand("extension.create-react-component", args => {
       handleCreateComponent(args);
     }),
-    vscode.commands.registerCommand("extension.create-styled-component", args => {
+    vscode.commands.registerCommand("extension.create-react-styled-component", args => {
       handleCreateComponent(args, true);
+    }),
+    vscode.commands.registerCommand("extension.create-react-native-component", args => {
+      handleCreateComponent(args, false, true);
+    }),
+    vscode.commands.registerCommand("extension.create-react-native-styled-component", args => {
+      handleCreateComponent(args, true, true);
     })
   ];
 

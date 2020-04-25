@@ -1,18 +1,19 @@
 {
   "name": "create-react-tsx-component",
-  "displayName": "Create React TSX Component",
-  "description": "Extension that creates React Component using Typescript with Styled Components.",
-  "version": "1.0.1",
+  "displayName": "Create React and React Native TSX Component",
+  "description": "Extension that creates React and React Native Component using Typescript with Styled Components.",
+  "version": "1.1.0",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
   "categories": [
+    "Programming Languages",
     "Snippets",
-    "Formatters",
     "Other"
   ],
   "keywords": [
     "react",
+    "react-native",
     "typescript",
     "styled-components"
   ],
@@ -20,30 +21,50 @@
     "vscode": "^1.17.0"
   },
   "activationEvents": [
-    "onCommand:extension.create-component",
-    "onCommand:extension.create-styled-component"
+    "onCommand:extension.create-react-component",
+    "onCommand:extension.create-react-styled-component",
+    "onCommand:extension.create-react-native-component",
+    "onCommand:extension.create-react-native-styled-component"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.create-component",
-        "title": "Create Component"
+        "command": "extension.create-react-component",
+        "title": "Create React JS Component"
       },
       {
-        "command": "extension.create-styled-component",
-        "title": "Create Styled Component"
+        "command": "extension.create-react-styled-component",
+        "title": "Create React JS Styled Component"
+      },
+      {
+        "command": "extension.create-react-native-component",
+        "title": "Create React Native Component"
+      },
+      {
+        "command": "extension.create-react-native-styled-component",
+        "title": "Create React Native Styled Component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "extension.create-component",
+          "command": "extension.create-react-component",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
         },
         {
-          "command": "extension.create-styled-component",
+          "command": "extension.create-react-styled-component",
+          "group": "1_modification",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.create-react-native-component",
+          "group": "1_modification",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.create-react-native-styled-component",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
         }

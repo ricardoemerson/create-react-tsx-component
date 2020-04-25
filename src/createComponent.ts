@@ -2,13 +2,17 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
-import arrowComponent from './templates/arrowComponent';
-import styledArrowComponent from './templates/styledArrowComponent';
-import styledFile from './templates/styledFile';
+import reactArrowComponent from './templates/reactArrowComponent';
+import styledReactArrowComponent from './templates/styledReactArrowComponent';
+import styledFileReact from './templates/styledFileReact';
+
+import reactNativeArrowComponent from './templates/reactNativeArrowComponent';
+import styledReactNativeArrowComponent from './templates/styledReactNativeArrowComponent';
+import styledFileReactNative from './templates/styledFileReactNative';
 
 export default async (
   componentName: string,
-  { dir, styled }: { dir?: string; styled?: boolean }
+  { dir, styled, mobile }: { dir?: string; styled?: boolean; mobile?: boolean }
 ) => {
   const COMPONENT_FILE_NAME = "index.tsx";
   const STYLED_FILE_NAME = "styles.ts";
@@ -34,11 +38,20 @@ export default async (
 
   createDir(dirWithFileName);
 
-  if (styled) {
-    await createFile(filePath(COMPONENT_FILE_NAME), styledArrowComponent(componentName));
-    await createFile(filePath(STYLED_FILE_NAME), styledFile());
+  if (mobile) {
+    if (styled) {
+      await createFile(filePath(COMPONENT_FILE_NAME), styledReactNativeArrowComponent(componentName));
+      await createFile(filePath(STYLED_FILE_NAME), styledFileReactNative());
+    } else {
+      await createFile(filePath(COMPONENT_FILE_NAME), reactNativeArrowComponent(componentName));
+    }
   } else {
-    await createFile(filePath(COMPONENT_FILE_NAME), arrowComponent(componentName));
+    if (styled) {
+      await createFile(filePath(COMPONENT_FILE_NAME), styledReactArrowComponent(componentName));
+      await createFile(filePath(STYLED_FILE_NAME), styledFileReact());
+    } else {
+      await createFile(filePath(COMPONENT_FILE_NAME), reactArrowComponent(componentName));
+    }
   }
 
   setTimeout(() => {
