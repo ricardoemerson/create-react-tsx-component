@@ -1,0 +1,69 @@
+{
+  "name": "create-react-tsx-component",
+  "displayName": "Create React TSX Component",
+  "description": "Extension that creates React Component using Typescript with Styled Components.",
+  "version": "1.0.0",
+  "publisher": "ricardo-emerson",
+  "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
+  "icon": "images/logo.png",
+  "categories": [
+    "Snippets",
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "react",
+    "typescript",
+    "styled-components"
+  ],
+  "engines": {
+    "vscode": "^1.17.0"
+  },
+  "activationEvents": [
+    "onCommand:extension.create-component",
+    "onCommand:extension.create-styled-component"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.create-component",
+        "title": "Create Component"
+      },
+      {
+        "command": "extension.create-styled-component",
+        "title": "Create Styled Component"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.create-component",
+          "group": "1_modification",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.create-styled-component",
+          "group": "1_modification",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.28"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
