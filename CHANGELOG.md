@@ -2,7 +2,7 @@
 
 All notable changes to the Create React and React Native TSX Component extension will be documented in this file.
 
-## [1.2.0]
+## [1.1.0]
 
 - Added support for creating components for React Native.
 
