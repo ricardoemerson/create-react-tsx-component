@@ -2,7 +2,7 @@
   "name": "create-react-tsx-component",
   "displayName": "Create React TSX Component",
   "description": "Extension that creates React Component using Typescript with Styled Components.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
