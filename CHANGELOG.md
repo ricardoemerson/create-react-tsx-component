@@ -2,6 +2,14 @@
 
 All notable changes to the Create React and React Native TSX Component extension will be documented in this file.
 
+## [1.1.3]
+
+- Update changelog.md file.
+
+## [1.1.2]
+
+- Update the Readme.md and changed the React Native Styled Container component and included StyleSheet for React Native component without Styled Components.
+
 ## [1.1.1]
 
 - Update changelog.md file.

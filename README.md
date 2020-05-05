@@ -43,4 +43,27 @@ This will create a folder with the component name entered containing the compone
 
 You can also create components without using `Styled Components`.
 
+## ESLint for Airbnb Code Style
+
+To resolve issues such as:
+
+- Import `.ts` files without informing the file extension;
+- Use `jsx` code in`tsx` files.
+
+The `eslint-import-resolver-typescript` plugin should be used as a development dependency and include the rules and settings below into `.eslintrc.json`.
+
+```json
+  ...
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never" }],
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
+```
+
 **Enjoy!**
