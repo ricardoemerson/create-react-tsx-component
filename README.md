@@ -7,13 +7,13 @@
 
 This extension creates a Functional Component for React and React Native in a named folder using Typescript by default and Styled Components (optionally).
 
-It is also possible to create components using Javascript using files with extension `.jsx` or `.js`. In VSCode settings it is possible change the extension of files that will be used to create the components.
+It is also possible to create components using Javascript using files with extension `.jsx` or `.js`.
 
 ## Configuration for use (tsx, jsx or js)
 
 ![Usage](images/component-settings.png)
 
-Example of `Settings.json`:
+Example of `settings.json`:
 
 ```json
 {
