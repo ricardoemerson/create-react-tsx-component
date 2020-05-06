@@ -5,7 +5,22 @@
 [![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component&ssr=false#review-details)
 
-This extension creates a Functional Component for React and React Native in a named folder using Typescript and Styled Components(optionally).
+This extension creates a Functional Component for React and React Native in a named folder using Typescript by default and Styled Components (optionally).
+
+It is also possible to create components using Javascript using files with extension `.jsx` or `.js`. In VSCode settings it is possible change the extension of files that will be used to create the components.
+
+## Configuration for use (tsx, jsx or js)
+
+![Usage](images/component-settings.png)
+
+Example of `Settings.json`:
+
+```json
+{
+  ...
+  "createReactTSXComponent.fileExtension": "tsx|jsx|js",
+}
+```
 
 ## Usage Examples
 
@@ -47,21 +62,35 @@ You can also create components without using `Styled Components`.
 
 To resolve issues such as:
 
+### Using Typescript
+
 - Import `.ts` files without informing the file extension;
-- Use `jsx` code in`tsx` files.
+- Use `jsx` code in `tsx` files.
 
 The `eslint-import-resolver-typescript` plugin should be used as a development dependency and include the rules and settings below into `.eslintrc.json`.
 
 ```json
   ...
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never" }],
   },
   "settings": {
     "import/resolver": {
       "typescript": {}
     }
+  }
+}
+```
+
+### Using Javascript
+
+To use `jsx` code in `js` files, include the rule below into `.eslintrc.json`.
+
+```json
+  ...
+  "rules": {
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
   }
 }
 ```

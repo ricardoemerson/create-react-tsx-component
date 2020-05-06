@@ -2,21 +2,52 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
-import reactArrowComponent from './templates/reactArrowComponent';
-import styledReactArrowComponent from './templates/styledReactArrowComponent';
-import styledFileReact from './templates/styledFileReact';
+import typescriptReactArrowComponent from './templates/typescript/reactArrowComponent';
+import typescriptStyledReactArrowComponent from './templates/typescript/styledReactArrowComponent';
+import typescriptReactNativeArrowComponent from './templates/typescript/reactNativeArrowComponent';
+import typescriptStyledReactNativeArrowComponent from './templates/typescript/styledReactNativeArrowComponent';
 
-import reactNativeArrowComponent from './templates/reactNativeArrowComponent';
-import styledReactNativeArrowComponent from './templates/styledReactNativeArrowComponent';
-import styledFileReactNative from './templates/styledFileReactNative';
+import javascriptReactArrowComponent from './templates/javascript/reactArrowComponent';
+import javascriptStyledReactArrowComponent from './templates/javascript/styledReactArrowComponent';
+import javascriptReactNativeArrowComponent from './templates/javascript/reactNativeArrowComponent';
+import javascriptStyledReactNativeArrowComponent from './templates/javascript/styledReactNativeArrowComponent';
+
+import styledFileReact from './templates/styled-components/styledFileReact';
+import styledFileReactNative from './templates/styled-components/styledFileReactNative';
 
 export default async (
   componentName: string,
   { dir, styled, mobile }: { dir?: string; styled?: boolean; mobile?: boolean }
 ) => {
-  const COMPONENT_FILE_NAME = "index.tsx";
-  const STYLED_FILE_NAME = "styles.ts";
+  const config = vscode.workspace.getConfiguration("createReactTSXComponent");
+  const fileExtension = config.get("fileExtension") as string;
+
+  let componentFileName = "index.tsx";
+  let styledFileName = "styles.ts";
+
+  let reactArrowComponent = typescriptReactArrowComponent;
+  let styledReactArrowComponent = typescriptStyledReactArrowComponent;
+  let reactNativeArrowComponent = typescriptReactNativeArrowComponent;
+  let styledReactNativeArrowComponent = typescriptStyledReactNativeArrowComponent;
+
+  if (['jsx', 'js'].includes(fileExtension)) {
+    reactArrowComponent = javascriptReactArrowComponent;
+    styledReactArrowComponent = javascriptStyledReactArrowComponent;
+    reactNativeArrowComponent = javascriptReactNativeArrowComponent;
+    styledReactNativeArrowComponent = javascriptStyledReactNativeArrowComponent;
+
+    styledFileName = "styles.js";
+  }
+
+  if (fileExtension === 'jsx') {
+    componentFileName = "index.jsx";
+  } else if (fileExtension === 'js') {
+    componentFileName = "index.js";
+  }
+
   const projectRoot = (vscode.workspace.workspaceFolders as any)[0].uri.fsPath;
+
+  componentName = componentName.split(' ').join('');
 
   if (!dir) {
     dir =
@@ -40,22 +71,22 @@ export default async (
 
   if (mobile) {
     if (styled) {
-      await createFile(filePath(COMPONENT_FILE_NAME), styledReactNativeArrowComponent(componentName));
-      await createFile(filePath(STYLED_FILE_NAME), styledFileReactNative());
+      await createFile(filePath(componentFileName), styledReactNativeArrowComponent(componentName));
+      await createFile(filePath(styledFileName), styledFileReactNative());
     } else {
-      await createFile(filePath(COMPONENT_FILE_NAME), reactNativeArrowComponent(componentName));
+      await createFile(filePath(componentFileName), reactNativeArrowComponent(componentName));
     }
   } else {
     if (styled) {
-      await createFile(filePath(COMPONENT_FILE_NAME), styledReactArrowComponent(componentName));
-      await createFile(filePath(STYLED_FILE_NAME), styledFileReact());
+      await createFile(filePath(componentFileName), styledReactArrowComponent(componentName));
+      await createFile(filePath(styledFileName), styledFileReact());
     } else {
-      await createFile(filePath(COMPONENT_FILE_NAME), reactArrowComponent(componentName));
+      await createFile(filePath(componentFileName), reactArrowComponent(componentName));
     }
   }
 
   setTimeout(() => {
-    vscode.workspace.openTextDocument(filePath(COMPONENT_FILE_NAME)).then(editor => {
+    vscode.workspace.openTextDocument(filePath(componentFileName)).then(editor => {
       if (!editor) {
         return;
       }

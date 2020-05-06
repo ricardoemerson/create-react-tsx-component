@@ -2,6 +2,10 @@
 
 All notable changes to the Create React and React Native TSX Component extension will be documented in this file.
 
+## [1.2.0]
+
+- Added support to create components using Javascript using files with extension `.jsx` and `.js`.
+
 ## [1.1.3]
 
 - Update changelog.md file.

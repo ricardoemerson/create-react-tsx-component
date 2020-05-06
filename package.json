@@ -2,7 +2,7 @@
   "name": "create-react-tsx-component",
   "displayName": "Create React and React Native TSX Component",
   "description": "Extension that creates React and React Native Component using Typescript with Styled Components.",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
@@ -15,6 +15,9 @@
     "react",
     "react-native",
     "typescript",
+    "javascript",
+    "tsx",
+    "jsx",
     "styled-components"
   ],
   "engines": {
@@ -69,6 +72,21 @@
           "when": "explorerResourceIsFolder"
         }
       ]
+    },
+    "configuration": {
+      "title": "Create React TSX Component",
+      "properties": {
+        "createReactTSXComponent.fileExtension": {
+          "type": "string",
+          "enum": [
+            "tsx",
+            "jsx",
+            "js"
+          ],
+          "default": "tsx",
+          "description": "Default file extension for React Components."
+        }
+      }
     }
   },
   "scripts": {
