@@ -12,6 +12,7 @@ import javascriptStyledReactArrowComponent from './templates/javascript/styledRe
 import javascriptReactNativeArrowComponent from './templates/javascript/reactNativeArrowComponent';
 import javascriptStyledReactNativeArrowComponent from './templates/javascript/styledReactNativeArrowComponent';
 
+import styledFileCSS from './templates/styled-components/styledFileCSS';
 import styledFileReact from './templates/styled-components/styledFileReact';
 import styledFileReactNative from './templates/styled-components/styledFileReactNative';
 
@@ -20,10 +21,25 @@ export default async (
   { dir, styled, mobile }: { dir?: string; styled?: boolean; mobile?: boolean }
 ) => {
   const config = vscode.workspace.getConfiguration("createReactTSXComponent");
-  const fileExtension = config.get("fileExtension") as string;
 
-  let componentFileName = "index.tsx";
-  let styledFileName = "styles.ts";
+  const fileExtension = config.get("fileExtension") as string;
+  const cssFileFormat = config.get("stylesFormat") as string;
+
+  const componentsExtensions = ['tsx', 'jsx', 'js'];
+  const stylesFormats = ['Styled Components', 'SCSS', 'CSS'];
+
+  const componentsFileNames = ['index.tsx', 'index.jsx', 'index.js'];
+  const stylesFileNames = ['styles.ts', 'styles.scss', 'styles.css'];
+  const importStylesFileNames = ['styles', 'styles.scss', 'styles.css'];
+
+  const componentExtensionIndex = componentsExtensions.findIndex(ext => ext === fileExtension);
+  const cssFormatIndex = stylesFormats.findIndex(style => style === cssFileFormat);
+
+  const componentFileName = componentsFileNames[componentExtensionIndex];
+  const styledFileName = stylesFileNames[cssFormatIndex];
+  const importStyledFileName = importStylesFileNames[cssFormatIndex];
+
+  const styledTemplate = cssFormatIndex === 0 ? styledFileReact : styledFileCSS;
 
   let reactArrowComponent = typescriptReactArrowComponent;
   let styledReactArrowComponent = typescriptStyledReactArrowComponent;
@@ -35,14 +51,6 @@ export default async (
     styledReactArrowComponent = javascriptStyledReactArrowComponent;
     reactNativeArrowComponent = javascriptReactNativeArrowComponent;
     styledReactNativeArrowComponent = javascriptStyledReactNativeArrowComponent;
-
-    styledFileName = "styles.js";
-  }
-
-  if (fileExtension === 'jsx') {
-    componentFileName = "index.jsx";
-  } else if (fileExtension === 'js') {
-    componentFileName = "index.js";
   }
 
   const projectRoot = (vscode.workspace.workspaceFolders as any)[0].uri.fsPath;
@@ -72,14 +80,14 @@ export default async (
   if (mobile) {
     if (styled) {
       await createFile(filePath(componentFileName), styledReactNativeArrowComponent(componentName));
-      await createFile(filePath(styledFileName), styledFileReactNative());
+      await createFile(filePath(stylesFileNames[0]), styledFileReactNative());
     } else {
       await createFile(filePath(componentFileName), reactNativeArrowComponent(componentName));
     }
   } else {
     if (styled) {
-      await createFile(filePath(componentFileName), styledReactArrowComponent(componentName));
-      await createFile(filePath(styledFileName), styledFileReact());
+      await createFile(filePath(componentFileName), styledReactArrowComponent(componentName, importStyledFileName));
+      await createFile(filePath(styledFileName), styledTemplate());
     } else {
       await createFile(filePath(componentFileName), reactArrowComponent(componentName));
     }

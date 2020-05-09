@@ -1,6 +1,10 @@
 # Change Log
 
-All notable changes to the Create React and React Native TSX Component extension will be documented in this file.
+All notable changes to the Create React JS and React Native TSX Component extension will be documented in this file.
+
+## [1.3.0]
+
+- Added support to use SCSS or CSS in components creations.
 
 ## [1.2.1]
 

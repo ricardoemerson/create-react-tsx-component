@@ -1,17 +1,17 @@
-export default (componentName: string) => (
+export default (componentName: string, styleName: string) => (
 `import React from 'react';
 
-import { Container } from './styles';
+${ styleName === 'styles' ? `import { Container } from './${ styleName }';` : `import './${ styleName }';` }
 
-const ${componentName}: React.FC = () => {
+const ${ componentName }: React.FC = () => {
 
   return (
-    <Container>
-      <h1>${componentName}</h1>
-    </Container>
+    ${ styleName === 'styles' ? `<Container>` : `<>` }
+      <h1>${ componentName }</h1>
+    ${ styleName === 'styles' ? `</Container>` : `</>` }
   );
 };
 
-export default ${componentName};
+export default ${ componentName };
 `
 );

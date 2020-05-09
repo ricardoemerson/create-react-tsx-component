@@ -4,15 +4,15 @@ import { Text } from 'react-native';
 
 import { Container } from './styles';
 
-const ${componentName}: React.FC = () => {
+const ${ componentName }: React.FC = () => {
 
   return (
     <Container>
-      <Text>${componentName}</Text>
+      <Text>${ componentName }</Text>
     </Container>
   );
 };
 
-export default ${componentName};
+export default ${ componentName };
 `
 );
