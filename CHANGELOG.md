@@ -2,6 +2,10 @@
 
 All notable changes to the Create React JS and React Native TSX Component extension will be documented in this file.
 
+## [1.3.1]
+
+- Fix Styled Component file extension when use `.jsx` or `.js`.
+
 ## [1.3.0]
 
 - Added support to use SCSS or CSS in components creations.

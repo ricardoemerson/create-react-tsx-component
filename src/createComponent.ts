@@ -36,7 +36,7 @@ export default async (
   const cssFormatIndex = stylesFormats.findIndex(style => style === cssFileFormat);
 
   const componentFileName = componentsFileNames[componentExtensionIndex];
-  const styledFileName = stylesFileNames[cssFormatIndex];
+  const styledFileName = ['jsx', 'js'].includes(fileExtension) ? 'styles.js' : stylesFileNames[cssFormatIndex];
   const importStyledFileName = importStylesFileNames[cssFormatIndex];
 
   const styledTemplate = cssFormatIndex === 0 ? styledFileReact : styledFileCSS;
@@ -80,7 +80,7 @@ export default async (
   if (mobile) {
     if (styled) {
       await createFile(filePath(componentFileName), styledReactNativeArrowComponent(componentName));
-      await createFile(filePath(stylesFileNames[0]), styledFileReactNative());
+      await createFile(filePath(styledFileName), styledFileReactNative());
     } else {
       await createFile(filePath(componentFileName), reactNativeArrowComponent(componentName));
     }
