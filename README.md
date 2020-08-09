@@ -9,7 +9,7 @@ This extension creates a Functional Component for React JS and React Native in a
 
 ## Configuration for use (tsx, jsx or js)
 
-It is possible to create components with Javascript using files with the extension `.jsx` or`.js`.
+By default components files are created using Typescript using files with the extension `.tsx`. It is also possible to create components with Javascript using files with the extension `.jsx` or `.js`.
 
 ![Usage](images/component-settings.png)
 
@@ -33,7 +33,7 @@ Example of `settings.json`:
 ```json
 {
   ...
-  "createReactTSXComponent.stylesFormat": "Styled Components|SCSS|CSS",
+  "createReactTSXComponent.stylesFormat": "Styled Components|SCSS|LESS|CSS",
 }
 ```
 
