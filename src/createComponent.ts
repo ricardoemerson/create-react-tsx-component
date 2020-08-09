@@ -26,11 +26,11 @@ export default async (
   const cssFileFormat = config.get("stylesFormat") as string;
 
   const componentsExtensions = ['tsx', 'jsx', 'js'];
-  const stylesFormats = ['Styled Components', 'SCSS', 'CSS'];
+  const stylesFormats = ['Styled Components', 'SCSS', 'LESS', 'CSS'];
 
   const componentsFileNames = ['index.tsx', 'index.jsx', 'index.js'];
-  const stylesFileNames = ['styles.ts', 'styles.scss', 'styles.css'];
-  const importStylesFileNames = ['styles', 'styles.scss', 'styles.css'];
+  const stylesFileNames = ['styles.ts', 'styles.scss',  'styles.less', 'styles.css'];
+  const importStylesFileNames = ['styles', 'styles.scss', 'styles.less', 'styles.css'];
 
   const componentExtensionIndex = componentsExtensions.findIndex(ext => ext === fileExtension);
   const cssFormatIndex = stylesFormats.findIndex(style => style === cssFileFormat);
