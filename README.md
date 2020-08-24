@@ -1,11 +1,11 @@
-# Create React JS and React Native TSX Component
+# Create React JS and React Native Component
 
 [![Version](https://vsmarketplacebadge.apphb.com/version/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component)
 [![Install](https://vsmarketplacebadge.apphb.com/installs/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component)
 [![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component&ssr=false#review-details)
 
-This extension creates a Functional Component for React JS and React Native in a named folder using Javascript or Typescript with CSS, SASS, LESS or Styled Components..
+This extension creates a Functional Component for React JS and React Native in a named folder using Typescript or Javascript with Styled Components, SASS, LESS or CSS.
 
 ## Configuration for use (tsx, jsx or js)
 

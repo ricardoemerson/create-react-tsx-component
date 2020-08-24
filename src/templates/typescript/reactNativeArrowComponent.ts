@@ -3,7 +3,6 @@ export default (componentName: string) => (
 import { View, Text, StyleSheet } from 'react-native';
 
 const ${ componentName }: React.FC = () => {
-
   return (
     <View style={ styles.container }>
       <Text style={ styles.title }>${ componentName }</Text>

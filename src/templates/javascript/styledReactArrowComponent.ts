@@ -4,7 +4,6 @@ export default (componentName: string, styleName: string) => (
 ${ styleName === 'styles' ? `import { Container } from './${ styleName }';` : `import './${ styleName }';` }
 
 const ${ componentName } = () => {
-
   return (
     ${ styleName === 'styles' ? `<Container>` : `<>` }
       <h1>${ componentName }</h1>

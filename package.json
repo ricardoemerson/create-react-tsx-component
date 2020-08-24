@@ -1,8 +1,8 @@
 {
   "name": "create-react-tsx-component",
-  "displayName": "Create React JS and React Native JS/JSX/TSX Component",
-  "description": "Extension that creates React JS and React Native Component using Javascript or Typescript with CSS, SASS, LESS or Styled Components.",
-  "version": "1.4.1",
+  "displayName": "Create React JS and React Native Component",
+  "description": "Extension that creates React JS and React Native Component using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
+  "version": "1.4.2",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
@@ -20,8 +20,12 @@
     "javascript",
     "tsx",
     "jsx",
+    "js",
     "styled",
-    "components"
+    "components",
+    "sass",
+    "less",
+    "css"
   ],
   "engines": {
     "vscode": "^1.17.0"
@@ -41,7 +45,7 @@
       },
       {
         "command": "extension.create-react-styled-component",
-        "title": "Create React JS Styled Component"
+        "title": "Create React JS Component with Styles"
       },
       {
         "command": "extension.create-react-native-component",
@@ -49,7 +53,7 @@
       },
       {
         "command": "extension.create-react-native-styled-component",
-        "title": "Create React Native Styled Component"
+        "title": "Create React Native Component with Styles"
       }
     ],
     "menus": {
@@ -77,7 +81,7 @@
       ]
     },
     "configuration": {
-      "title": "Create React TSX Component",
+      "title": "Create React JS and React Native Component",
       "properties": {
         "createReactTSXComponent.fileExtension": {
           "type": "string",
@@ -98,7 +102,7 @@
             "CSS"
           ],
           "default": "Styled Components",
-          "description": "Default style file format for React JS components."
+          "description": "Default style file format for React JS and React Native (only Styled Components) Components."
         }
       }
     }
