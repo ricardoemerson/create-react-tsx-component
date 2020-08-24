@@ -2,6 +2,14 @@
 
 All notable changes to the Create React JS and React Native TSX Component extension will be documented in this file.
 
+## [1.4.2]
+
+- Updated the Readme.md, context menu items names for components with styles, extension name and description.
+
+## [1.4.1]
+
+- Updated the Readme.md.
+
 ## [1.4.0]
 
 - Added support to use LESS in components creations.
