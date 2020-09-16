@@ -56,6 +56,28 @@
         "title": "Create React Native Component with Styles"
       }
     ],
+    "keybindings": [
+      {
+        "command": "extension.create-react-component",
+        "key": "ctrl+shift+0",
+        "mac": "cmd+shift+0"
+      },
+      {
+        "command": "extension.create-react-styled-component",
+        "key": "ctrl+shift+9",
+        "mac": "cmd+shift+9"
+      },
+      {
+        "command": "extension.create-react-native-component",
+        "key": "ctrl+shift+8",
+        "mac": "cmd+shift+8"
+      },
+      {
+        "command": "extension.create-react-native-styled-component",
+        "key": "ctrl+shift+7",
+        "mac": "cmd+shift+7"
+      }
+    ],
     "menus": {
       "explorer/context": [
         {
