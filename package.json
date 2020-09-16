@@ -2,7 +2,7 @@
   "name": "create-react-tsx-component",
   "displayName": "Create React JS and React Native Component",
   "description": "Extension that creates React JS and React Native Component using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",

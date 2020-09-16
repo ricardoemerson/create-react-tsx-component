@@ -36,7 +36,7 @@ export default async (
   const cssFormatIndex = stylesFormats.findIndex(style => style === cssFileFormat);
 
   const componentFileName = componentsFileNames[componentExtensionIndex];
-  const styledFileName = ['jsx', 'js'].includes(fileExtension) ? 'styles.js' : stylesFileNames[cssFormatIndex];
+  const styledFileName = ['jsx', 'js'].includes(fileExtension) && cssFormatIndex === 0 ? 'styles.js' : stylesFileNames[cssFormatIndex];
   const importStyledFileName = importStylesFileNames[cssFormatIndex];
 
   const styledTemplate = cssFormatIndex === 0 ? styledFileReact : styledFileCSS;

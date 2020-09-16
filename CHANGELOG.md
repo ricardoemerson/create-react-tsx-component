@@ -2,6 +2,10 @@
 
 All notable changes to the Create React JS and React Native TSX Component extension will be documented in this file.
 
+## [1.4.3]
+
+- Fixed the `.css` file extension when uses `.js` files format.
+
 ## [1.4.2]
 
 - Updated the Readme.md, context menu items names for components with styles, extension name and description.
