@@ -103,6 +103,11 @@
           ],
           "default": "Styled Components",
           "description": "Default style file format for React JS and React Native (only Styled Components) Components."
+        },
+        "createReactTSXComponent.shortcutDefaultFolder": {
+          "type": "string",
+          "default": "",
+          "description": "Set a default folder for creating components using the shortcut."
         }
       }
     }

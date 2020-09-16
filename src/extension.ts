@@ -3,6 +3,17 @@ import * as vscode from 'vscode';
 import createComponent from './createComponent';
 
 const handleCreateComponent = async (args: any, styled?: boolean, mobile?: boolean) => {
+
+  if(mobile && styled) {
+    vscode.window.showInformationMessage("🚀 Creating - Styled React Native Component")
+  } else if (!mobile && styled) {
+    vscode.window.showInformationMessage("🚀 Creating - Styled React Component")
+  } else if (mobile && !styled) {
+    vscode.window.showInformationMessage("🚀 Creating - React Native Component")
+  } else if (!mobile && !styled) {
+    vscode.window.showInformationMessage("🚀 Creating - React Component")
+  }
+
   const componentName = await vscode.window.showInputBox({
     prompt: `Enter the component name:`,
     ignoreFocusOut: true,

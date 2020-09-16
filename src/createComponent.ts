@@ -24,6 +24,7 @@ export default async (
 
   const fileExtension = config.get("fileExtension") as string;
   const cssFileFormat = config.get("stylesFormat") as string;
+  const shortcutDefaultFolder = config.get("shortcutDefaultFolder") as string;
 
   const componentsExtensions = ['tsx', 'jsx', 'js'];
   const stylesFormats = ['Styled Components', 'SCSS', 'LESS', 'CSS'];
@@ -56,6 +57,10 @@ export default async (
   const projectRoot = (vscode.workspace.workspaceFolders as any)[0].uri.fsPath;
 
   componentName = componentName.split(' ').join('');
+
+  if(shortcutDefaultFolder) {
+    dir += projectRoot + `/${shortcutDefaultFolder}`
+  }
 
   if (!dir) {
     dir =
