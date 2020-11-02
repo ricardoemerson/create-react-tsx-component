@@ -53,7 +53,7 @@ These are all available configurations with their default values.
 
 ## Configuration for the Component File (tsx, jsx or js)
 
-By default components files are created using Typescript using files with the extension `.tsx`. It is also possible to create components with Javascript using files with the extension `.jsx` or `.js`.
+By default components files are created using Typescript with files extension `.tsx`. It is also possible to create components with Javascript with files extension `.jsx` or `.js`.
 
 ![Usage](images/component-settings.png)
 
@@ -61,7 +61,7 @@ Example of `settings.json`:
 
 ```json
 {
-  ...
+  // ...
   "createReactTSXComponent.fileExtension": "tsx|jsx|js",
 }
 ```
@@ -69,7 +69,7 @@ Example of `settings.json`:
 
 ## Configuration for create a component using Arrow Function or Regular Function
 
-Defines if component will be created using an `Arrow Function` or a `Regular Function`.
+Defines if component will be created using `Arrow Function` or `Regular Function`.
 
 ![Usage](images/use-arrow-function-settings.png)
 
@@ -77,7 +77,7 @@ Example of `settings.json`:
 
 ```json
 {
-  ...
+  // ...
   "createReactTSXComponent.useArrowFunctionComponent": false,
 }
 ```
@@ -88,7 +88,9 @@ Example of component creation using `Arrow Function` or `Regular Function`:
 
 ## Configuration for create a component using React.FC for typing.
 
-Defines if component will be typed using `React.FC`. **Important:** Only applicable if option `Use Arrow Function Component` and `Use React Import` is enabled.
+Defines if component will be typed using `React.FC`.
+
+**Important:** Only applicable if option `Use Arrow Function Component` and `Use React Import` is enabled.
 
 ![Usage](images/use-react-fc-settings.png)
 
@@ -96,7 +98,7 @@ Example of `settings.json`:
 
 ```json
 {
-  ...
+  // ...
   "createReactTSXComponent.useReactFC": false,
 }
 ```
@@ -108,6 +110,7 @@ Example of component creation using `React.FC` or not:
 ## Configuration for create a component using import for React to use JSX.
 
 Defines if the import of React (`import React from 'react';`) will be used at the beginning of the component.
+
 This option should only be used if you are using **React 17+**, that comes with support for the new JSX transform, where we don’t need to import React to our components anymore to use JSX.
 
 ![Usage](images/use-react-import-settings.png)
@@ -116,7 +119,7 @@ Example of `settings.json`:
 
 ```json
 {
-  ...
+  // ...
   "createReactTSXComponent.useReactImport": false,
 }
 ```
@@ -134,11 +137,11 @@ Example of `settings.json`:
 
 ```json
 {
-  ...
+  // ...
   "createReactTSXComponent.stylesFormat": "Styled Components|SCSS|LESS|CSS",
 }
 ```
-## Configuration for use (CSS Modules with SCSS or CSS)
+## Configuration for use (CSS Module with SCSS or CSS)
 
 It is also possible use **CSS Module** in the creation of styles for your components **just for SCSS and CSS**. This option, which by default is disabled, adds the suffix `.module.css` or `.module.scss` to the style files created.
 
@@ -148,7 +151,7 @@ Example of `settings.json`:
 
 ```json
 {
-  ...
+  // ...
   "createReactTSXComponent.useCSSModule": true,
 }
 ```
@@ -159,7 +162,7 @@ Example of component creation using styles format `CSS` and `useCSSModule` enabl
 
 ## Usage Examples
 
-You can create a React or React Native Component either by typing in the vscode command palette or by right-clicking any folder in the tree view and use the followed options:
+You can create a React JS, React Native or Next JS Component either by typing in the vscode command palette or by right-clicking any folder in the tree view and use the followed options:
 - `Create React JS Component`
 - `Create React JS Component with Styles`
 - `Create React JS Named Component`
@@ -236,9 +239,9 @@ These settings can be used to create components using the `Next JS Framework`.
 
 Example of `settings.json`:
 
-```
+```json
 {
-  ...
+  // ...
   "createReactTSXComponent.useArrowFunctionComponent": false,
   "createReactTSXComponent.useReactFC": false,
   "createReactTSXComponent.useReactImport": false,
@@ -272,7 +275,7 @@ To resolve issues such as:
 The `eslint-import-resolver-typescript` plugin should be used as a development dependency and include the rules and settings below into `.eslintrc.json`.
 
 ```json
-  ...
+  // ...
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never" }],
@@ -290,7 +293,7 @@ The `eslint-import-resolver-typescript` plugin should be used as a development d
 To use `jsx` code in `js` files, include the rule below into `.eslintrc.json`.
 
 ```json
-  ...
+  // ...
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
   }
