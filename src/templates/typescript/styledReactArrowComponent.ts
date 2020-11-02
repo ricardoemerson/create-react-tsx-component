@@ -1,9 +1,11 @@
-export default (componentName: string, styleName: string) => (
-`import React from 'react';
+import CreateComponent from '../interfaces/CreateComponent';
+import creatReactImport from '../shared/functions/create-react-import';
+import createStylesImport from '../shared/functions/create-styles-import';
 
-${ styleName === 'styles' ? `import { Container } from './${ styleName }';` : `import './${ styleName }';` }
+export default ({ componentName, styleName, useReactImport, useReactFC, useCSSModule }: CreateComponent) => (
+`${ creatReactImport(useReactImport) }${ createStylesImport(styleName, useCSSModule) }
 
-const ${ componentName }: React.FC = () => {
+const ${ componentName }${ useReactFC ? ': React.FC' : '' } = () => {
   return (
     ${ styleName === 'styles' ? `<Container>` : `<>` }
       <h1>${ componentName }</h1>

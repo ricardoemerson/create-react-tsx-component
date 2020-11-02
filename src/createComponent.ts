@@ -2,55 +2,102 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
-import typescriptReactArrowComponent from './templates/typescript/reactArrowComponent';
-import typescriptStyledReactArrowComponent from './templates/typescript/styledReactArrowComponent';
-import typescriptReactNativeArrowComponent from './templates/typescript/reactNativeArrowComponent';
-import typescriptStyledReactNativeArrowComponent from './templates/typescript/styledReactNativeArrowComponent';
+import tsReactComponent from './templates/typescript/reactComponent';
+import tsStyledReactComponent from './templates/typescript/styledReactComponent';
 
-import javascriptReactArrowComponent from './templates/javascript/reactArrowComponent';
-import javascriptStyledReactArrowComponent from './templates/javascript/styledReactArrowComponent';
-import javascriptReactNativeArrowComponent from './templates/javascript/reactNativeArrowComponent';
-import javascriptStyledReactNativeArrowComponent from './templates/javascript/styledReactNativeArrowComponent';
+import tsReactArrowComponent from './templates/typescript/reactArrowComponent';
+import tsStyledReactArrowComponent from './templates/typescript/styledReactArrowComponent';
+
+import tsReactNativeComponent from './templates/typescript/reactNativeComponent';
+import tsStyledReactNativeComponent from './templates/typescript/styledReactNativeComponent';
+
+import tsReactNativeArrowComponent from './templates/typescript/reactNativeArrowComponent';
+import tsStyledReactNativeArrowComponent from './templates/typescript/styledReactNativeArrowComponent';
+
+import jsReactComponent from './templates/javascript/reactComponent';
+import jsStyledReactComponent from './templates/javascript/styledReactComponent';
+
+import jsReactArrowComponent from './templates/javascript/reactArrowComponent';
+import jsStyledReactArrowComponent from './templates/javascript/styledReactArrowComponent';
+
+import jsReactNativeComponent from './templates/javascript/reactNativeComponent';
+import jsStyledReactNativeComponent from './templates/javascript/styledReactNativeComponent';
+
+import jsReactNativeArrowComponent from './templates/javascript/reactNativeArrowComponent';
+import jsStyledReactNativeArrowComponent from './templates/javascript/styledReactNativeArrowComponent';
 
 import styledFileCSS from './templates/styled-components/styledFileCSS';
 import styledFileReact from './templates/styled-components/styledFileReact';
 import styledFileReactNative from './templates/styled-components/styledFileReactNative';
 
-export default async (
-  componentName: string,
-  { dir, styled, mobile }: { dir?: string; styled?: boolean; mobile?: boolean }
-) => {
+interface ComponentProps {
+  dir?: string;
+  named: boolean;
+  styled?: boolean;
+  mobile?: boolean
+}
+
+export default async (componentName: string, { dir, named, styled, mobile }: ComponentProps) => {
+  // Load configurations.
   const config = vscode.workspace.getConfiguration("createReactTSXComponent");
 
   const fileExtension = config.get("fileExtension") as string;
   const cssFileFormat = config.get("stylesFormat") as string;
+  const useArrowFunctionComponent = config.get("useArrowFunctionComponent") as boolean;
+  const useReactFC = config.get("useReactFC") as boolean;
+  const useReactImport = config.get("useReactImport") as boolean;
+  const useCSSModule = config.get("useCSSModule") as boolean;
 
   const componentsExtensions = ['tsx', 'jsx', 'js'];
   const stylesFormats = ['Styled Components', 'SCSS', 'LESS', 'CSS'];
 
   const componentsFileNames = ['index.tsx', 'index.jsx', 'index.js'];
-  const stylesFileNames = ['styles.ts', 'styles.scss',  'styles.less', 'styles.css'];
-  const importStylesFileNames = ['styles', 'styles.scss', 'styles.less', 'styles.css'];
+
+  let stylesFileNames: string[];
+  let importStylesFileNames: string[];
+
+  if (useCSSModule) {
+    stylesFileNames = ['styles.ts', 'styles.module.scss',  'styles.less', 'styles.module.css'];
+    importStylesFileNames = ['styles', 'styles.module.scss', 'styles.less', 'styles.module.css'];
+  } else {
+    stylesFileNames = ['styles.ts', 'styles.scss',  'styles.less', 'styles.css'];
+    importStylesFileNames = ['styles', 'styles.scss', 'styles.less', 'styles.css'];
+  }
 
   const componentExtensionIndex = componentsExtensions.findIndex(ext => ext === fileExtension);
   const cssFormatIndex = stylesFormats.findIndex(style => style === cssFileFormat);
 
-  const componentFileName = componentsFileNames[componentExtensionIndex];
+  let componentFileName: string;
+
+  if (named) {
+    componentFileName = `${ componentName }.${ fileExtension }`;
+  } else {
+    componentFileName = componentsFileNames[componentExtensionIndex];
+  }
+
   const styledFileName = ['jsx', 'js'].includes(fileExtension) && cssFormatIndex === 0 ? 'styles.js' : stylesFileNames[cssFormatIndex];
-  const importStyledFileName = importStylesFileNames[cssFormatIndex];
+  const styleName = importStylesFileNames[cssFormatIndex];
 
   const styledTemplate = cssFormatIndex === 0 ? styledFileReact : styledFileCSS;
 
-  let reactArrowComponent = typescriptReactArrowComponent;
-  let styledReactArrowComponent = typescriptStyledReactArrowComponent;
-  let reactNativeArrowComponent = typescriptReactNativeArrowComponent;
-  let styledReactNativeArrowComponent = typescriptStyledReactNativeArrowComponent;
+  let reactComponent = tsReactComponent;
+  let reactArrowComponent = tsReactArrowComponent;
+  let styledReactComponent = tsStyledReactComponent;
+  let styledReactArrowComponent = tsStyledReactArrowComponent;
+  let reactNativeComponent = tsReactNativeComponent;
+  let reactNativeArrowComponent = tsReactNativeArrowComponent;
+  let styledReactNativeComponent = tsStyledReactNativeComponent;
+  let styledReactNativeArrowComponent = tsStyledReactNativeArrowComponent;
 
   if (['jsx', 'js'].includes(fileExtension)) {
-    reactArrowComponent = javascriptReactArrowComponent;
-    styledReactArrowComponent = javascriptStyledReactArrowComponent;
-    reactNativeArrowComponent = javascriptReactNativeArrowComponent;
-    styledReactNativeArrowComponent = javascriptStyledReactNativeArrowComponent;
+    reactComponent = jsReactComponent;
+    reactArrowComponent = jsReactArrowComponent;
+    styledReactComponent = jsStyledReactComponent;
+    styledReactArrowComponent = jsStyledReactArrowComponent;
+    reactNativeComponent = jsReactNativeComponent;
+    reactNativeArrowComponent = jsReactNativeArrowComponent;
+    styledReactNativeComponent = jsStyledReactNativeComponent;
+    styledReactNativeArrowComponent = jsStyledReactNativeArrowComponent;
   }
 
   const projectRoot = (vscode.workspace.workspaceFolders as any)[0].uri.fsPath;
@@ -66,30 +113,78 @@ export default async (
         valueSelection: [-1, -1]
       })) || "";
   }
+
   if (!dir.includes(projectRoot)) {
     dir = projectRoot + dir;
   }
+
   if (dir[dir.length - 1] !== "/") {
     dir = dir + "/";
   }
-  const dirWithFileName = dir + componentName;
-  const filePath = (fileName: string) => dirWithFileName + "/" + fileName;
 
-  createDir(dirWithFileName);
+  let dirWithFileName: string;
+
+  if (!named) {
+    dirWithFileName = dir + componentName;
+
+    createDir(dirWithFileName);
+  }
+
+  const filePath = (fileName: string) => {
+    if (named) {
+      return dir + "/" + fileName;
+    }
+
+    return dirWithFileName + "/" + fileName;
+  }
 
   if (mobile) {
     if (styled) {
-      await createFile(filePath(componentFileName), styledReactNativeArrowComponent(componentName));
-      await createFile(filePath(styledFileName), styledFileReactNative());
+      if (useArrowFunctionComponent) {
+        await createFile(
+          filePath(componentFileName), styledReactNativeArrowComponent({ componentName, useReactImport, useReactFC })
+        );
+
+        await createFile(filePath(styledFileName), styledFileReactNative());
+      } else {
+        await createFile(
+          filePath(componentFileName), styledReactNativeComponent({ componentName, useReactImport })
+        );
+
+        await createFile(filePath(styledFileName), styledFileReactNative());
+      }
     } else {
-      await createFile(filePath(componentFileName), reactNativeArrowComponent(componentName));
+      if (useArrowFunctionComponent) {
+        await createFile(
+          filePath(componentFileName), reactNativeArrowComponent({ componentName, useReactImport, useReactFC })
+        );
+      } else {
+        await createFile(
+          filePath(componentFileName), reactNativeComponent({ componentName, useReactImport })
+        );
+      }
     }
   } else {
     if (styled) {
-      await createFile(filePath(componentFileName), styledReactArrowComponent(componentName, importStyledFileName));
-      await createFile(filePath(styledFileName), styledTemplate());
+      if (useArrowFunctionComponent) {
+        await createFile(
+          filePath(componentFileName), styledReactArrowComponent({ componentName, styleName, useReactImport, useReactFC, useCSSModule })
+        );
+
+        await createFile(filePath(styledFileName), styledTemplate());
+      } else {
+        await createFile(
+          filePath(componentFileName), styledReactComponent({ componentName, styleName, useReactImport, useCSSModule })
+        );
+
+        await createFile(filePath(styledFileName), styledTemplate());
+      }
     } else {
-      await createFile(filePath(componentFileName), reactArrowComponent(componentName));
+      if (useArrowFunctionComponent) {
+        await createFile(filePath(componentFileName), reactArrowComponent({ componentName, useReactImport, useReactFC, useCSSModule }));
+      } else {
+        await createFile(filePath(componentFileName), reactComponent({ componentName, useReactImport, useCSSModule }));
+      }
     }
   }
 

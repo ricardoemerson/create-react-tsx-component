@@ -1,7 +1,8 @@
-export default (componentName: string) => (
-`import React from 'react';
+import CreateComponent from '../interfaces/CreateComponent';
+import creatReactImport from '../shared/functions/create-react-import';
 
-const ${ componentName }: React.FC = () => {
+export default ({ componentName, useReactImport, useReactFC }: CreateComponent) => (
+`${ creatReactImport(useReactImport) }const ${ componentName }${ useReactFC ? ': React.FC' : '' } = () => {
   return (
     <h1>${ componentName }</h1>
   );

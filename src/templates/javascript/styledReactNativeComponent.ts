@@ -2,11 +2,17 @@ import CreateComponent from '../interfaces/CreateComponent';
 import creatReactImport from '../shared/functions/create-react-import';
 
 export default ({ componentName, useReactImport }: CreateComponent) => (
-`${ creatReactImport(useReactImport) }const ${ componentName } = () => {
+`${ creatReactImport(useReactImport) }import { Text } from 'react-native';
+
+import { Container } from './styles';
+
+function ${ componentName }() {
   return (
-    <h1>${ componentName }</h1>
+    <Container>
+      <Text>${ componentName }</Text>
+    </Container>
   );
-}
+};
 
 export default ${ componentName };
 `

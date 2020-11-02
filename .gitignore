@@ -2,3 +2,5 @@ out
 node_modules
 .vscode-test
 .DS_Store
+src/temp
+.directory

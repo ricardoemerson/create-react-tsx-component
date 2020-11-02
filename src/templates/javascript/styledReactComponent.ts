@@ -5,7 +5,7 @@ import createStylesImport from '../shared/functions/create-styles-import';
 export default ({ componentName, styleName, useReactImport, useCSSModule }: CreateComponent) => (
 `${ creatReactImport(useReactImport) }${ createStylesImport(styleName, useCSSModule) }
 
-const ${ componentName } = () => {
+function ${ componentName }() {
   return (
     ${ styleName === 'styles' ? `<Container>` : `<>` }
       <h1>${ componentName }</h1>
