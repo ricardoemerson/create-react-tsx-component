@@ -15,6 +15,7 @@
 * Adds the setting **useReactFC** that defines if component will be typed using `React.FC`. **Important:** Only applicable if option `Use Arrow Function Component` and `Use React Import` is enabled.
 * Adds the setting **useReactImport** that defines if the import of React (`import React from 'react';`) will be used at the beginning of the component. This option should only be used if you are using **React 17+**, that comes with support for the new JSX transform, where we don’t need to import React to our components anymore to use JSX.
 * Adds the setting **useCSSModule** that defines if CSS file name will be sufixed with `.module.css` or `.module.scss`. **Important:** Only applicable if option `Styles Format` is `CSS` or `SCSS`.
+* Adds `Next JS Framework` support.
 
 ## Support
 
@@ -42,7 +43,7 @@
 [![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component&ssr=false#review-details)
 
-This extension creates a Functional Component for React JS, React Native and Next JS using Typescript or Javascript with Styled Components, SASS, LESS or CSS.
+This extension creates a Functional Component for React JS and React Native using Typescript or Javascript with Styled Components, SASS, LESS or CSS.
 
 ## Settings
 
@@ -125,7 +126,7 @@ Example of component creation using `import React from 'react';` or not:
 
 ## Configuration for the Style File (Styled Components, SCSS, LESS or CSS)
 
-It is also possible to create components **just for React JS and Next JS** using SASS (`.scss`) or CSS (`.css`) to define component styles.
+It is also possible to create components **just for React JS** using SASS (`.scss`) or CSS (`.css`) to define component styles.
 
 ![Usage](images/styles-settings.png)
 
@@ -156,7 +157,7 @@ Example of component creation using styles format `CSS` and `useCSSModule` enabl
 
 ## Usage Examples
 
-You can create a React JS, React Native or Next JS Component either by typing in the vscode command palette or by right-clicking any folder in the tree view and use the followed options:
+You can create a React JS or React Native Component either by typing in the vscode command palette or by right-clicking any folder in the tree view and use the followed options:
 - `Create React JS Component`
 - `Create React JS Component with Styles`
 - `Create React JS Named Component`
@@ -223,7 +224,7 @@ This will create a file with the component name entered.
 
 You can also create components without using `Styled Components`.
 
-## Next JS
+## Next JS Recipe
 
 These settings can be used to create components using the `Next JS Framework`.
 
