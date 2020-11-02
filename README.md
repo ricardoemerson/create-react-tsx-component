@@ -61,7 +61,6 @@ Example of `settings.json`:
 
 ```json
 {
-  // ...
   "createReactTSXComponent.fileExtension": "tsx|jsx|js",
 }
 ```
@@ -77,7 +76,6 @@ Example of `settings.json`:
 
 ```json
 {
-  // ...
   "createReactTSXComponent.useArrowFunctionComponent": false,
 }
 ```
@@ -98,7 +96,6 @@ Example of `settings.json`:
 
 ```json
 {
-  // ...
   "createReactTSXComponent.useReactFC": false,
 }
 ```
@@ -119,7 +116,6 @@ Example of `settings.json`:
 
 ```json
 {
-  // ...
   "createReactTSXComponent.useReactImport": false,
 }
 ```
@@ -137,7 +133,6 @@ Example of `settings.json`:
 
 ```json
 {
-  // ...
   "createReactTSXComponent.stylesFormat": "Styled Components|SCSS|LESS|CSS",
 }
 ```
@@ -151,7 +146,6 @@ Example of `settings.json`:
 
 ```json
 {
-  // ...
   "createReactTSXComponent.useCSSModule": true,
 }
 ```
@@ -241,7 +235,6 @@ Example of `settings.json`:
 
 ```json
 {
-  // ...
   "createReactTSXComponent.useArrowFunctionComponent": false,
   "createReactTSXComponent.useReactFC": false,
   "createReactTSXComponent.useReactImport": false,
@@ -275,7 +268,7 @@ To resolve issues such as:
 The `eslint-import-resolver-typescript` plugin should be used as a development dependency and include the rules and settings below into `.eslintrc.json`.
 
 ```json
-  // ...
+{
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never" }],
@@ -293,7 +286,7 @@ The `eslint-import-resolver-typescript` plugin should be used as a development d
 To use `jsx` code in `js` files, include the rule below into `.eslintrc.json`.
 
 ```json
-  // ...
+{
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
   }
