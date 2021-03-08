@@ -29,15 +29,19 @@ import jsStyledReactNativeArrowComponent from './templates/javascript/styledReac
 import styledFileCSS from './templates/styled-components/styledFileCSS';
 import styledFileReact from './templates/styled-components/styledFileReact';
 import styledFileReactNative from './templates/styled-components/styledFileReactNative';
+import styledFileTailwindCSSParser from './templates/styled-components/styledFileTailwindCSSParser';
+
+import nextPage from './templates/typescript/nextPage';
 
 interface ComponentProps {
   dir?: string;
   named: boolean;
   styled?: boolean;
   mobile?: boolean
+  createNextPage?: boolean
 }
 
-export default async (componentName: string, { dir, named, styled, mobile }: ComponentProps) => {
+export default async (componentName: string, { dir, named, styled, mobile, createNextPage }: ComponentProps) => {
   // Load configurations.
   const config = vscode.workspace.getConfiguration("createReactTSXComponent");
 
@@ -49,7 +53,7 @@ export default async (componentName: string, { dir, named, styled, mobile }: Com
   const useCSSModule = config.get("useCSSModule") as boolean;
 
   const componentsExtensions = ['tsx', 'jsx', 'js'];
-  const stylesFormats = ['Styled Components', 'SCSS', 'LESS', 'CSS'];
+  const stylesFormats = ['Styled Components', 'SCSS', 'LESS', 'CSS', 'TailwindCSSParser'];
 
   const componentsFileNames = ['index.tsx', 'index.jsx', 'index.js'];
 
@@ -60,8 +64,8 @@ export default async (componentName: string, { dir, named, styled, mobile }: Com
     stylesFileNames = ['styles.ts', 'styles.module.scss',  'styles.less', 'styles.module.css'];
     importStylesFileNames = ['styles', 'styles.module.scss', 'styles.less', 'styles.module.css'];
   } else {
-    stylesFileNames = ['styles.ts', 'styles.scss',  'styles.less', 'styles.css'];
-    importStylesFileNames = ['styles', 'styles.scss', 'styles.less', 'styles.css'];
+    stylesFileNames = ['styles.ts', 'styles.scss',  'styles.less', 'styles.css', 'styles.ts'];
+    importStylesFileNames = ['styles', 'styles.scss', 'styles.less', 'styles.css', 'styles'];
   }
 
   const componentExtensionIndex = componentsExtensions.findIndex(ext => ext === fileExtension);
@@ -77,6 +81,8 @@ export default async (componentName: string, { dir, named, styled, mobile }: Com
 
   const styledFileName = ['jsx', 'js'].includes(fileExtension) && cssFormatIndex === 0 ? 'styles.js' : stylesFileNames[cssFormatIndex];
   const styleName = importStylesFileNames[cssFormatIndex];
+
+  const usesStylesTailwindCSSParser = cssFileFormat ===  'TailwindCSSParser';
 
   const styledTemplate = cssFormatIndex === 0 ? styledFileReact : styledFileCSS;
 
@@ -174,16 +180,24 @@ export default async (componentName: string, { dir, named, styled, mobile }: Com
         await createFile(filePath(styledFileName), styledTemplate());
       } else {
         await createFile(
-          filePath(componentFileName), styledReactComponent({ componentName, styleName, useReactImport, useCSSModule })
+          filePath(componentFileName), styledReactComponent({ componentName, styleName, useReactImport, useCSSModule, usesStylesTailwindCSSParser })
         );
 
-        await createFile(filePath(styledFileName), styledTemplate());
+        if (usesStylesTailwindCSSParser) {
+          await createFile(filePath(styledFileName), styledFileTailwindCSSParser({ componentName }));
+        } else {
+          await createFile(filePath(styledFileName), styledTemplate());
+        }
       }
     } else {
       if (useArrowFunctionComponent) {
         await createFile(filePath(componentFileName), reactArrowComponent({ componentName, useReactImport, useReactFC, useCSSModule }));
       } else {
-        await createFile(filePath(componentFileName), reactComponent({ componentName, useReactImport, useCSSModule }));
+        if (createNextPage) {
+          await createFile(filePath(componentFileName), nextPage({ componentName }));
+        } else {
+          await createFile(filePath(componentFileName), reactComponent({ componentName, useReactImport, useCSSModule }));
+        }
       }
     }
   }

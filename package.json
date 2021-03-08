@@ -1,8 +1,8 @@
 {
   "name": "create-react-tsx-component",
-  "displayName": "Create React JS and React Native Component",
-  "description": "Extension that creates React JS and React Native Component using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
-  "version": "1.5.0",
+  "displayName": "Create Next, React and React Native Component",
+  "description": "Extension that creates Next, React and React Native Component using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
+  "version": "1.6.0",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
@@ -16,6 +16,7 @@
     "react",
     "react-native",
     "component",
+    "components",
     "typescript",
     "javascript",
     "next",
@@ -23,15 +24,18 @@
     "jsx",
     "js",
     "styled",
-    "components",
+    "page",
+    "pages",
     "sass",
     "less",
-    "css"
+    "css",
+    "module"
   ],
   "engines": {
     "vscode": "^1.17.0"
   },
   "activationEvents": [
+    "onCommand:extension.create-next-page",
     "onCommand:extension.create-react-named-component",
     "onCommand:extension.create-react-component",
     "onCommand:extension.create-react-styled-component",
@@ -44,15 +48,19 @@
     "commands": [
       {
         "command": "extension.create-react-component",
-        "title": "🔶 Create React JS Component"
+        "title": "🔶 Create Next or React Component"
       },
       {
         "command": "extension.create-react-styled-component",
-        "title": "🔶 Create React JS Component with Styles"
+        "title": "🔶 Create Next or React Component with Styles"
       },
       {
         "command": "extension.create-react-named-component",
-        "title": "🔶 Create React JS Named Component"
+        "title": "🔶 Create Next or React Named Component"
+      },
+      {
+        "command": "extension.create-next-page",
+        "title": "🔶 Create Next Page"
       },
       {
         "command": "extension.create-react-native-component",
@@ -85,6 +93,11 @@
           "when": "explorerResourceIsFolder"
         },
         {
+          "command": "extension.create-next-page",
+          "group": "1_modification",
+          "when": "explorerResourceIsFolder"
+        },
+        {
           "command": "extension.create-react-native-component",
           "group": "1_modification",
           "when": "explorerResourceIsFolder"
@@ -102,7 +115,7 @@
       ]
     },
     "configuration": {
-      "title": "Create React JS and React Native Component",
+      "title": "Create Next, React and React Native Component",
       "properties": {
         "createReactTSXComponent.fileExtension": {
           "type": "string",
@@ -112,7 +125,7 @@
             "js"
           ],
           "default": "tsx",
-          "markdownDescription": "Default file extension for React JS and React Native Components."
+          "markdownDescription": "Default file extension for Next, React and React Native Components."
         },
         "createReactTSXComponent.stylesFormat": {
           "type": "string",
@@ -120,24 +133,25 @@
             "Styled Components",
             "SCSS",
             "LESS",
-            "CSS"
+            "CSS",
+            "TailwindCSSParser"
           ],
           "default": "Styled Components",
-          "markdownDescription": "Default style file format for React JS and React Native (only Styled Components) Components."
+          "markdownDescription": "Default style file format for Next, React and React Native (only Styled Components) Components. The TailwindCSSParser it is for my personal use."
         },
         "createReactTSXComponent.useArrowFunctionComponent": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "markdownDescription": "Defines if component will be created using an `Arrow Function` or a `Regular Function`."
         },
         "createReactTSXComponent.useReactFC": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "markdownDescription": "Defines if component will be typed using `React.FC`. **Important:** Only applicable if option `Use Arrow Function Component` and `Use React Import` is enabled."
         },
         "createReactTSXComponent.useReactImport": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "markdownDescription": "Defines if the import of React (`import React from 'react';`) will be used at the beginning of the component. This option should only be used if you are using **React 17+**, that comes with support for the new JSX transform, where we don’t need to import React to our components anymore to use JSX."
         },
         "createReactTSXComponent.useCSSModule": {
@@ -156,12 +170,14 @@
     "test": "yarn run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.168",
     "@types/node": "^12.6.8",
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",
     "vscode": "^1.1.28"
   },
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21"
   }
 }

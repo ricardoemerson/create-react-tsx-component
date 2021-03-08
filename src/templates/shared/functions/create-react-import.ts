@@ -1,7 +1,7 @@
-export default function creatReactImport(useReactImport?: boolean) {
+export default function creatReactImport(useReactImport?: boolean, importReactNode = false) {
   if (useReactImport) {
-    return `import React from 'react';\n\n`
+    return `import React${ importReactNode ? ', { ReactNode }' : '' } from 'react';\n\n`
   }
 
-  return '';
+  return importReactNode ? `import { ReactNode } from 'react';\n\n` : '';
 }

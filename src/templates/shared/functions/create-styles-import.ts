@@ -1,6 +1,13 @@
-export default function createStylesImport(styleName?: string, useCSSModule?: boolean) {
+import { camelCase } from 'lodash';
+
+export default function createStylesImport(styleName?: string, useCSSModule?: boolean, usesStylesTailwindCSSParser?: boolean, componentName?: string) {
+
   if (styleName === 'styles') {
-    return `import { Container } from './${ styleName }';`
+    if (usesStylesTailwindCSSParser) {
+      return `import ${ camelCase(componentName) }Styles from './${ styleName }';`
+    } else {
+      return `import { Container } from './${ styleName }';`
+    }
   } else {
     if (useCSSModule) {
       return `import styles from './${ styleName }';`

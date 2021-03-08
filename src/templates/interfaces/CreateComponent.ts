@@ -4,4 +4,5 @@ export default interface CreateComponent {
   useReactImport?: boolean;
   useReactFC?: boolean;
   useCSSModule?: boolean;
+  usesStylesTailwindCSSParser?: boolean;
 }

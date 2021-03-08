@@ -1,12 +1,23 @@
 # Change Log
 
-All notable changes to the Create React JS and React Native TSX Component extension will be documented in this file.
+All notable changes to the Create React and React Native TSX Component extension will be documented in this file.
+
+## [1.6.0]
+
+- The settings for using the `Next JS Framework` are now set as default.
+- Adds **Create Next Page** for creation of Next.js Pages.
+- Changed the name of menu item from **Create React Component** to **Create Next or React Component**.
+- Changed the name of menu item from **Create React Component with Styles** to **Create Next or React Component with Styles**.
+- Changed the name of menu item from **Create React Named Component** to **Create Next or React Named Component**.
+- Changed the setting for **useArrowFunctionComponent** that defines if component will be created using an a `Regular Function` or `Arrow Function` to uses `Regular Function` as default.
+- Changed the setting **useReactFC** that defines if component will be typed using `React.FC` to false as default.
+- Changed the setting **useReactImport** that defines if the import of React (`import React from 'react';`) will be used at the beginning of the component to false as default.
 
 ## [1.5.0]
 
-- Adds **Orange Icon** 🔶 for React JS Component Actions.
+- Adds **Orange Icon** 🔶 for React Component Actions.
 - Adds **Blue Icon** 🔷 for React Native Component Actions.
-- Adds **Create React JS Named Component** for creation of a React JS Component file with a name of component without folder creation.
+- Adds **Create React Named Component** for creation of a React Component file with a name of component without folder creation.
 - Adds **Create React Native Named Component** for creation of a React Native Component file with a name of component without folder creation.
 - Adds the setting **useArrowFunctionComponent** that defines if component will be created using an `Arrow Function` or a `Regular Function`.
 - Adds the setting **useReactFC** that defines if component will be typed using `React.FC`. **Important:** Only applicable if option `Use Arrow Function Component` and `Use React Import` is enabled.
