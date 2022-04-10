@@ -1,19 +1,22 @@
 import CreateComponent from '../interfaces/CreateComponent';
 import creatReactImport from '../shared/functions/create-react-import';
+import pascalCase from '../shared/functions/pascal-case';
 
-export default ({ componentName, useReactImport }: CreateComponent) => (
+export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) => (
 `${ creatReactImport(useReactImport) }import { Text } from 'react-native';
 
 import { Container } from './styles';
 
-const ${ componentName } = () => {
+${useExportDefault ? '' : 'export '}const ${ pascalCase(componentName) } = () => {
   return (
     <Container>
-      <Text>${ componentName }</Text>
+      <Text>${ pascalCase(componentName) }</Text>
     </Container>
   );
 };
+${useExportDefault ? `
 
-export default ${ componentName };
+export default ${ pascalCase(componentName) };
+` : ''}
 `
 );

@@ -5,17 +5,10 @@
     </a>
 </p>
 
-# What's new in Create Next, React and React Native Component 1.6.0
+# What's new in Create Next, React and React Native Component 1.7.0
 
-- The settings for using the `Next JS Framework` are now set as default.
-- Adds **Create Next Page** for creation **of** Next.js Pages.
-- Changed the name of menu item from **Create React Component** to **Create Next or React Component**.
-- Changed the name of menu item from **Create React Component with Styles** to **Create Next or React Component with Styles**.
-- Changed the name of menu item from **Create React Named Component** to **Create Next or React Named Component**.
-- Changed the setting for **useArrowFunctionComponent** that defines if component will be created using an a `Regular Function` or `Arrow Function` to uses `Regular Function` as default.
-- Changed the setting for **useReactFC** that defines if component will be typed using `React.FC` to false as default.
-- Changed the setting for **useReactImport** that defines if the import of React (`import React from 'react';`) will be used at the beginning of the component to false as default.
-- Setting **useCSSModule** that defines if CSS file name will be sufixed with `.module.css` or `.module.scss`. **Important:** Only applicable if option `Styles Format` is `CSS` or `SCSS`.
+- Adds the setting **useBarrel** that defines if component will be created using the barrel pattern.
+- Adds the setting **useExportDefault** that defines if component will be created using export default or named export.
 
 ## Support
 
@@ -156,6 +149,50 @@ Example of `settings.json`:
 Example of component creation using styles format `CSS` and `useCSSModule` enabled:
 
 ![Usage](images/use-css-module-created.png)
+
+## Configuration for use barrel pattern
+
+It is possible use the barrel pattern. This will create a file named `index.[tsx|jsx|js]` to simplify the import/export.
+
+> see more information about barrel pattern by [clicking here](https://basarat.gitbook.io/typescript/main-1/barrel)
+
+![Usage](images/use-barrel-settings.png)
+
+Example of `settings.json`:
+
+```json
+{
+  "createReactTSXComponent.useBarrel": true
+}
+```
+
+Example of component creation using barrel pattern:
+
+![Usage](images/use-barrel-created.png)
+
+## Configuration for use default export
+
+This option is enabled by default. If disabled, will export named components instead default (NextJS Pages always use export default)
+
+> see more information about avoid export default [clicking here](https://basarat.gitbook.io/typescript/main-1/defaultisbad)
+
+![Usage](images/use-export-default-settings.png)
+
+Example of `settings.json`:
+
+```json
+{
+  "createReactTSXComponent.useExportDefault": true
+}
+```
+
+Example of component creation using export default:
+
+![Usage](images/use-export-default-enabled-created.png)
+
+Example of component creation using named export:
+
+![Usage](images/use-export-default-disabled-created.png)
 
 # Usage Examples
 

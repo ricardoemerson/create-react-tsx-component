@@ -2,7 +2,7 @@
   "name": "create-react-tsx-component",
   "displayName": "Create Next, React and React Native Component",
   "description": "Extension that creates Next, React and React Native Component using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
@@ -158,6 +158,16 @@
           "type": "boolean",
           "default": false,
           "markdownDescription": "Defines if CSS file name will be sufixed with `.module.css` or `.module.scss`. **Important:** Only applicable if option `Styles Format` is `CSS` or `SCSS`."
+        },
+        "createReactTSXComponent.useBarrel": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Defines if the component will be created using the barrel export pattern."
+        },
+        "createReactTSXComponent.useExportDefault": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Defines if the component will use export default or named export."
         }
       }
     }

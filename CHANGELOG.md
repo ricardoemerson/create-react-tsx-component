@@ -2,6 +2,11 @@
 
 All notable changes to the Create React and React Native TSX Component extension will be documented in this file.
 
+## [1.7.0]
+
+- Adds the setting **useBarrel** that defines if component will be created using the barrel pattern.
+- Adds the setting **useExportDefault** that defines if component will be created using export default or named export.
+
 ## [1.6.0]
 
 - The settings for using the `Next JS Framework` are now set as default.

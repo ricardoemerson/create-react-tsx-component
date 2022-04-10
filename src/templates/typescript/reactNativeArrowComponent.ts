@@ -1,13 +1,14 @@
 import CreateComponent from '../interfaces/CreateComponent';
 import creatReactImport from '../shared/functions/create-react-import';
+import pascalCase from '../shared/functions/pascal-case';
 
-export default ({ componentName, useReactImport, useReactFC }: CreateComponent) => (
+export default ({ componentName, useReactImport, useReactFC, useExportDefault }: CreateComponent) => (
 `${ creatReactImport(useReactImport) }import { View, Text, StyleSheet } from 'react-native';
 
-const ${ componentName }${ useReactFC ? ': React.FC' : '' } = () => {
+${useExportDefault ? '' : 'export '}const ${ pascalCase(componentName) }${ useReactFC ? ': React.FC' : '' } = () => {
   return (
     <View style={ styles.container }>
-      <Text style={ styles.title }>${ componentName }</Text>
+      <Text style={ styles.title }>${ pascalCase(componentName) }</Text>
     </View>
   );
 }
@@ -25,7 +26,9 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+${useExportDefault ? `
 
-export default ${ componentName };
+export default ${ pascalCase(componentName) };
+` : ''}
 `
 );
