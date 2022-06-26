@@ -1,4 +1,3 @@
-export default () => (
-`/* The component style is inserted here. */
-`
-);
+export default () =>
+  `/* The component style is inserted here. */
+`;

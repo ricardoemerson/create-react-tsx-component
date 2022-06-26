@@ -2,7 +2,7 @@
   "name": "create-react-tsx-component",
   "displayName": "Create Next, React and React Native Component",
   "description": "Extension that creates Next, React and React Native Component using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
@@ -172,6 +172,14 @@
   "devDependencies": {
     "@types/lodash": "^4.14.168",
     "@types/node": "^12.6.8",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import-helpers": "^1.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.7.1",
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",
     "vscode": "^1.1.28"

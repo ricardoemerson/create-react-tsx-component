@@ -1,19 +1,22 @@
 import CreateComponent from '../interfaces/CreateComponent';
 import pascalCase from '../shared/functions/pascal-case';
+
 import { camelCase } from 'lodash';
 
-export default ({ componentName }: CreateComponent) => (
-`import tw from '@shared/functions/TailwindCSSParser';
+export default ({ componentName }: CreateComponent) =>
+  `import tw from '@shared/functions/TailwindCSSParser';
 
 const baseStyles = tw(\`
   bg-gray-50 text-gray-900 dark:(bg-gray-900 text-gray-200)
 \`);
 
-interface ${ pascalCase(componentName) }StyleProps {
+interface ${pascalCase(componentName)}StyleProps {
   className?: string;
 }
 
-export default function ${ camelCase(componentName) }Styles({ className }: ${ pascalCase(componentName) }StyleProps) {
+export default function ${camelCase(componentName)}Styles({ className }: ${pascalCase(
+    componentName
+  )}StyleProps) {
   const styles = [];
 
   className && styles.push(className);
@@ -21,5 +24,4 @@ export default function ${ camelCase(componentName) }Styles({ className }: ${ pa
 
   return styles.join(' ');
 }
-`
-);
+`;

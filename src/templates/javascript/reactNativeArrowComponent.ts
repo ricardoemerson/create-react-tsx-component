@@ -1,16 +1,18 @@
 import CreateComponent from '../interfaces/CreateComponent';
 import creatReactImport from '../shared/functions/create-react-import';
 
-export default ({ componentName, useReactImport }: CreateComponent) => (
-`${ creatReactImport(useReactImport) }import { View, Text, StyleSheet } from 'react-native';
+export default ({ componentName, useReactImport }: CreateComponent) =>
+  `${creatReactImport(
+    useReactImport
+  )}import { View, Text, StyleSheet } from 'react-native';
 
-const ${ componentName } = () => {
+const ${componentName} = () => {
   return (
     <View style={ styles.container }>
-      <Text style={ styles.title }>${ componentName }</Text>
+      <Text style={ styles.title }>${componentName}</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -26,6 +28,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ${ componentName };
-`
-);
+export default ${componentName};
+`;
