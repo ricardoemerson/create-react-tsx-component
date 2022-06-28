@@ -5,17 +5,10 @@
     </a>
 </p>
 
-# What's new in Create Next, React and React Native Component 1.6.0
+# What's new in Create Next, React and React Native Component 1.7.0
 
-- The settings for using the `Next JS Framework` are now set as default.
-- Adds **Create Next Page** for creation **of** Next.js Pages.
-- Changed the name of menu item from **Create React Component** to **Create Next or React Component**.
-- Changed the name of menu item from **Create React Component with Styles** to **Create Next or React Component with Styles**.
-- Changed the name of menu item from **Create React Named Component** to **Create Next or React Named Component**.
-- Changed the setting for **useArrowFunctionComponent** that defines if component will be created using an a `Regular Function` or `Arrow Function` to uses `Regular Function` as default.
-- Changed the setting for **useReactFC** that defines if component will be typed using `React.FC` to false as default.
-- Changed the setting for **useReactImport** that defines if the import of React (`import React from 'react';`) will be used at the beginning of the component to false as default.
-- Setting **useCSSModule** that defines if CSS file name will be sufixed with `.module.css` or `.module.scss`. **Important:** Only applicable if option `Styles Format` is `CSS` or `SCSS`.
+- The names of Next JS components and pages have rules that are applied automatically and the extension will apply the Pascal Case or Kebab Case format depending on the situation. So now just type the name of the component or page and the extension will apply the correct pattern.
+- Added the setting `useExportDefault` that defines if the component will use export default or named export.
 
 ## Support
 

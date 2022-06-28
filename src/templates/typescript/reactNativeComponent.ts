@@ -1,8 +1,9 @@
 import CreateComponent from '../interfaces/CreateComponent';
+import createExportDefault from '../shared/functions/create-export-default';
 import creatReactImport from '../shared/functions/create-react-import';
 import pascalCase from '../shared/functions/pascal-case';
 
-export default ({ componentName, useReactImport }: CreateComponent) =>
+export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) =>
   `${creatReactImport(
     useReactImport,
     true
@@ -12,7 +13,9 @@ interface ${pascalCase(componentName)}Props {
   children: ReactNode;
 }
 
-function ${pascalCase(componentName)}({ children }: ${pascalCase(componentName)}Props) {
+${useExportDefault ? '' : 'export '}function ${pascalCase(
+    componentName
+  )}({ children }: ${pascalCase(componentName)}Props) {
   return (
     <View style={ styles.container }>
       <Text style={ styles.title }>${pascalCase(componentName)}</Text>
@@ -34,6 +37,4 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
-
-export default ${pascalCase(componentName)};
-`;
+${createExportDefault(componentName, useExportDefault)}`;

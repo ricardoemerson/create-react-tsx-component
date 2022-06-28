@@ -1,12 +1,13 @@
 import CreateComponent from '../interfaces/CreateComponent';
+import createExportDefault from '../shared/functions/create-export-default';
 import creatReactImport from '../shared/functions/create-react-import';
 
-export default ({ componentName, useReactImport }: CreateComponent) =>
+export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) =>
   `${creatReactImport(
     useReactImport
   )}import { View, Text, StyleSheet } from 'react-native';
 
-const ${componentName} = () => {
+${useExportDefault ? '' : 'export '}const ${componentName} = () => {
   return (
     <View style={ styles.container }>
       <Text style={ styles.title }>${componentName}</Text>
@@ -27,6 +28,4 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
-
-export default ${componentName};
-`;
+${createExportDefault(componentName, useExportDefault)}`;

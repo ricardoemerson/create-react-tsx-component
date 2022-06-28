@@ -158,6 +158,16 @@
           "type": "boolean",
           "default": false,
           "markdownDescription": "Defines if CSS file name will be sufixed with `.module.css` or `.module.scss`. **Important:** Only applicable if option `Styles Format` is `CSS` or `SCSS`."
+        },
+         "createReactTSXComponent.useBarrel": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Defines if the component will be created using the barrel export pattern."
+        },
+        "createReactTSXComponent.useExportDefault": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Defines if the component will use export default or named export."
         }
       }
     }

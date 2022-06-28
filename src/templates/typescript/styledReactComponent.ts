@@ -1,4 +1,5 @@
 import CreateComponent from '../interfaces/CreateComponent';
+import createExportDefault from '../shared/functions/create-export-default';
 import creatReactImport from '../shared/functions/create-react-import';
 import createStylesImport from '../shared/functions/create-styles-import';
 import pascalCase from '../shared/functions/pascal-case';
@@ -11,6 +12,7 @@ export default ({
   useReactImport,
   useCSSModule,
   usesStylesTailwindCSSParser,
+  useExportDefault,
 }: CreateComponent) =>
   `${creatReactImport(useReactImport, true)}${createStylesImport(
     styleName,
@@ -23,7 +25,7 @@ interface ${pascalCase(componentName)}Props {
   children: ReactNode;${usesStylesTailwindCSSParser ? '\n  className?: string;' : ''}
 }
 
-function ${pascalCase(componentName)}({ children${
+${useExportDefault ? '' : 'export '}function ${pascalCase(componentName)}({ children${
     usesStylesTailwindCSSParser ? `, className = ''` : ''
   } }: ${pascalCase(componentName)}Props) {${
     usesStylesTailwindCSSParser
@@ -43,6 +45,4 @@ function ${pascalCase(componentName)}({ children${
     ${styleName === 'styles' && !usesStylesTailwindCSSParser ? `</Container>` : `</>`}
   );
 }
-
-export default ${componentName};
-`;
+${createExportDefault(componentName, useExportDefault)}`;

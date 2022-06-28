@@ -48,6 +48,8 @@ export default async (
   const useReactFC = config.get('useReactFC') as boolean;
   const useReactImport = config.get('useReactImport') as boolean;
   const useCSSModule = config.get('useCSSModule') as boolean;
+  const useExportDefault = config.get('useExportDefault') as boolean;
+  const useBarrel = config.get('useBarrel') as boolean;
 
   const componentsExtensions = ['tsx', 'jsx', 'js'];
   const stylesFormats = ['Styled Components', 'SCSS', 'LESS', 'CSS', 'TailwindCSSParser'];
@@ -175,14 +177,19 @@ export default async (
       if (useArrowFunctionComponent) {
         await createFile(
           filePath(componentFileName),
-          styledReactNativeArrowComponent({ componentName, useReactImport, useReactFC })
+          styledReactNativeArrowComponent({
+            componentName,
+            useReactImport,
+            useReactFC,
+            useExportDefault,
+          })
         );
 
         await createFile(filePath(styledFileName), styledFileReactNative());
       } else {
         await createFile(
           filePath(componentFileName),
-          styledReactNativeComponent({ componentName, useReactImport })
+          styledReactNativeComponent({ componentName, useReactImport, useExportDefault })
         );
 
         await createFile(filePath(styledFileName), styledFileReactNative());
@@ -191,12 +198,17 @@ export default async (
       if (useArrowFunctionComponent) {
         await createFile(
           filePath(componentFileName),
-          reactNativeArrowComponent({ componentName, useReactImport, useReactFC })
+          reactNativeArrowComponent({
+            componentName,
+            useReactImport,
+            useReactFC,
+            useExportDefault,
+          })
         );
       } else {
         await createFile(
           filePath(componentFileName),
-          reactNativeComponent({ componentName, useReactImport })
+          reactNativeComponent({ componentName, useReactImport, useExportDefault })
         );
       }
     }
@@ -211,6 +223,7 @@ export default async (
             useReactImport,
             useReactFC,
             useCSSModule,
+            useExportDefault,
           })
         );
 
@@ -224,13 +237,14 @@ export default async (
             useReactImport,
             useCSSModule,
             usesStylesTailwindCSSParser,
+            useExportDefault,
           })
         );
 
         if (usesStylesTailwindCSSParser) {
           await createFile(
             filePath(styledFileName),
-            styledFileTailwindCSSParser({ componentName })
+            styledFileTailwindCSSParser({ componentName, useExportDefault })
           );
         } else {
           await createFile(filePath(styledFileName), styledTemplate());
@@ -240,7 +254,13 @@ export default async (
       if (useArrowFunctionComponent) {
         await createFile(
           filePath(componentFileName),
-          reactArrowComponent({ componentName, useReactImport, useReactFC, useCSSModule })
+          reactArrowComponent({
+            componentName,
+            useReactImport,
+            useReactFC,
+            useCSSModule,
+            useExportDefault,
+          })
         );
       } else {
         if (createNextPage) {
@@ -248,7 +268,12 @@ export default async (
         } else {
           await createFile(
             filePath(componentFileName),
-            reactComponent({ componentName, useReactImport, useCSSModule })
+            reactComponent({
+              componentName,
+              useReactImport,
+              useCSSModule,
+              useExportDefault,
+            })
           );
         }
       }

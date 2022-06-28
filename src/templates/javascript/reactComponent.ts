@@ -1,15 +1,16 @@
 import CreateComponent from '../interfaces/CreateComponent';
+import createExportDefault from '../shared/functions/create-export-default';
 import creatReactImport from '../shared/functions/create-react-import';
 import pascalCase from '../shared/functions/pascal-case';
 
-export default ({ componentName, useReactImport }: CreateComponent) =>
-  `${creatReactImport(useReactImport)}function ${pascalCase(componentName)}() {
+export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) =>
+  `${creatReactImport(useReactImport)}${
+    useExportDefault ? '' : 'export '
+  }function ${pascalCase(componentName)}() {
   return (
     <>
       <h1>${pascalCase(componentName)}</h1>
     </>
   );
 }
-
-export default ${pascalCase(componentName)};
-`;
+${createExportDefault(componentName, useExportDefault)}`;
