@@ -6,6 +6,7 @@ import pascalCase from '../shared/functions/pascal-case';
 export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) =>
   `${creatReactImport(
     useReactImport,
+    true,
     true
   )}import { View, Text, StyleSheet } from 'react-native';
 

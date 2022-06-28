@@ -8,7 +8,7 @@ export default ({
   useReactFC,
   useExportDefault,
 }: CreateComponent) =>
-  `${creatReactImport(useReactImport)}import { Text } from 'react-native';
+  `${creatReactImport(useReactImport, false, true)}import { Text } from 'react-native';
 
 import { Container } from './styles';
 

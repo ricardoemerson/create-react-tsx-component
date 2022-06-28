@@ -4,7 +4,7 @@ import creatReactImport from '../shared/functions/create-react-import';
 import pascalCase from '../shared/functions/pascal-case';
 
 export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) =>
-  `${creatReactImport(useReactImport, true)}import { Text } from 'react-native';
+  `${creatReactImport(useReactImport, true, true)}import { Text } from 'react-native';
 
 import { Container } from './styles';
 

@@ -4,7 +4,9 @@ import creatReactImport from '../shared/functions/create-react-import';
 
 export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) =>
   `${creatReactImport(
-    useReactImport
+    useReactImport,
+    false,
+    true
   )}import { View, Text, StyleSheet } from 'react-native';
 
 ${useExportDefault ? '' : 'export '}const ${componentName} = () => {

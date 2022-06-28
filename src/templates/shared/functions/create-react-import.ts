@@ -1,10 +1,15 @@
 export default function creatReactImport(
   useReactImport?: boolean,
-  importReactNode = false
+  importReactNode = false,
+  isReactNativeTemplate = false
 ) {
   if (useReactImport) {
-    return `import React${importReactNode ? ', { ReactNode }' : ''} from 'react';\n\n`;
+    return `import React${importReactNode ? ', { ReactNode }' : ''} from 'react';\n${
+      isReactNativeTemplate ? '' : '\n'
+    }`;
   }
 
-  return importReactNode ? `import { ReactNode } from 'react';\n\n` : '';
+  return importReactNode
+    ? `import { ReactNode } from 'react';\n${isReactNativeTemplate ? '' : '\n'}`
+    : '';
 }

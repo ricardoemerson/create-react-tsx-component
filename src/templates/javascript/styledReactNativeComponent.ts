@@ -3,7 +3,7 @@ import createExportDefault from '../shared/functions/create-export-default';
 import creatReactImport from '../shared/functions/create-react-import';
 
 export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) =>
-  `${creatReactImport(useReactImport)}import { Text } from 'react-native';
+  `${creatReactImport(useReactImport, false, true)}import { Text } from 'react-native';
 
 import { Container } from './styles';
 

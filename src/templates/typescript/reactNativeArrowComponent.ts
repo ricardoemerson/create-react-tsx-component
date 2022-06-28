@@ -9,7 +9,9 @@ export default ({
   useExportDefault,
 }: CreateComponent) =>
   `${creatReactImport(
-    useReactImport
+    useReactImport,
+    false,
+    true
   )}import { View, Text, StyleSheet } from 'react-native';
 
 ${useExportDefault ? '' : 'export '}const ${componentName}${
