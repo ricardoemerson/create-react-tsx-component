@@ -1,19 +1,29 @@
 <p align="center">
   <br />
-  <a title="Learn more about Create Next, React and React Native Component" href="https://github.com/ricardoemerson/create-react-tsx-component">
-    <img src="https://raw.githubusercontent.com/ricardoemerson/create-react-tsx-component/master/images/cover-logo.png" alt="Create Next, React and React Native Component Logo" width="256"  heigth="256"/>
+  <a title="Learn more about React Tools" href="https://github.com/ricardoemerson/create-react-tsx-component">
+    <img src="https://raw.githubusercontent.com/ricardoemerson/create-react-tsx-component/master/images/cover-logo.png" alt="React Tools Logo" width="256"  heigth="256"/>
     </a>
 </p>
 
-# What's new in Create Next, React and React Native Component 1.7.0
+# What's new in React Tools 1.8.0
 
+- Change extension name to React Tools.
+- Change icons of the menu items as bellow:
+  🧩 Create Next or React Component
+  🧩 Create Next or React Component with Styles
+  🧩 Create Next or React Named Component
+  📑 Create Next Page
+  📱 Create React Native Component
+  📱 Create React Native Component with Styles
+  📱 Create React Native Named Component
+- The menu items for React JS, Next JS and React Native was separeted in groups.
 - The names of Next JS components and pages have rules that are applied automatically and the extension will apply the Pascal Case or Kebab Case format depending on the situation. So now just type the name of the component or page and the extension will apply the correct pattern.
 - Added the setting `useBarrel` that Defines if the **Named Components** will be created using the barrel pattern.
 - Added the setting `useExportDefault` that defines if the component will use export default or named export.
 
 ## Support
 
-**Create Next, React and React Native Component** is an extension created for **Visual Studio Code**. If you find it useful, please consider supporting it.
+**React Tools** is an extension created for **Visual Studio Code**. If you find it useful, please consider supporting it.
 
 <table align="center" width="100%" border="0">
   <tr>
@@ -30,7 +40,7 @@
   </tr>
 </table>
 
-# Create Next, React and React Native Component
+# React Tools
 
 [![Version](https://vsmarketplacebadge.apphb.com/version/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component)
 [![Install](https://vsmarketplacebadge.apphb.com/installs/ricardo-emerson.create-react-tsx-component.svg)](https://marketplace.visualstudio.com/items?itemName=ricardo-emerson.create-react-tsx-component)

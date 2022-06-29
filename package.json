@@ -1,8 +1,8 @@
 {
   "name": "create-react-tsx-component",
-  "displayName": "Create Next, React and React Native Component",
-  "description": "Extension that creates Next, React and React Native Component using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
-  "version": "1.7.0",
+  "displayName": "React Tools",
+  "description": "Extension that creates Next, React and React Native Components using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
+  "version": "1.8.0",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
@@ -48,74 +48,74 @@
     "commands": [
       {
         "command": "extension.create-react-component",
-        "title": "🔶 Create Next or React Component"
+        "title": "🧩 Create Next or React Component"
       },
       {
         "command": "extension.create-react-styled-component",
-        "title": "🔶 Create Next or React Component with Styles"
+        "title": "🧩 Create Next or React Component with Styles"
       },
       {
         "command": "extension.create-react-named-component",
-        "title": "🔶 Create Next or React Named Component"
+        "title": "🧩 Create Next or React Named Component"
       },
       {
         "command": "extension.create-next-page",
-        "title": "🔶 Create Next Page"
+        "title": "📑 Create Next Page"
       },
       {
         "command": "extension.create-react-native-component",
-        "title": "🔷 Create React Native Component"
+        "title": "📱 Create React Native Component"
       },
       {
         "command": "extension.create-react-native-styled-component",
-        "title": "🔷 Create React Native Component with Styles"
+        "title": "📱 Create React Native Component with Styles"
       },
       {
         "command": "extension.create-react-native-named-component",
-        "title": "🔷 Create React Native Named Component"
+        "title": "📱 Create React Native Named Component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "extension.create-react-component",
-          "group": "1_modification",
+          "group": "1a_modification",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "extension.create-react-styled-component",
-          "group": "1_modification",
+          "group": "1a_modification",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "extension.create-react-named-component",
-          "group": "1_modification",
+          "group": "1a_modification",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "extension.create-next-page",
-          "group": "1_modification",
+          "group": "1b_modification",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "extension.create-react-native-component",
-          "group": "1_modification",
+          "group": "1c_modification",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "extension.create-react-native-styled-component",
-          "group": "1_modification",
+          "group": "1c_modification",
           "when": "explorerResourceIsFolder"
         },
         {
           "command": "extension.create-react-native-named-component",
-          "group": "1_modification",
+          "group": "1c_modification",
           "when": "explorerResourceIsFolder"
         }
       ]
     },
     "configuration": {
-      "title": "Create Next, React and React Native Component",
+      "title": "React Tools",
       "properties": {
         "createReactTSXComponent.fileExtension": {
           "type": "string",

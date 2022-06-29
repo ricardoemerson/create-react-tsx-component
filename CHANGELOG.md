@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to the Create React and React Native TSX Component extension will be documented in this file.
+All notable changes to the React Tools extension will be documented in this file.
+
+## [1.8.0]
+
+- Change extension name to React Tools.
+- Change icons of the menu items as bellow:
+  🧩 Create Next or React Component
+  🧩 Create Next or React Component with Styles
+  🧩 Create Next or React Named Component
+  📑 Create Next Page
+  📱 Create React Native Component
+  📱 Create React Native Component with Styles
+  📱 Create React Native Named Component
+- The menu items for React JS, Next JS and React Native was separeted in groups.
 
 ## [1.7.0]
 
