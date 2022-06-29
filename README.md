@@ -8,22 +8,23 @@
 # What's new in Create Next, React and React Native Component 1.7.0
 
 - The names of Next JS components and pages have rules that are applied automatically and the extension will apply the Pascal Case or Kebab Case format depending on the situation. So now just type the name of the component or page and the extension will apply the correct pattern.
+- Added the setting `useBarrel` that Defines if the **Named Components** will be created using the barrel pattern.
 - Added the setting `useExportDefault` that defines if the component will use export default or named export.
 
 ## Support
 
 **Create Next, React and React Native Component** is an extension created for **Visual Studio Code**. If you find it useful, please consider supporting it.
 
-<table align="center" width="60%" border="0">
+<table align="center" width="100%" border="0">
   <tr>
-    <td>
+    <td >
       <a title="PayPal" href="https://www.paypal.com/donate?hosted_button_id=X26H7L6AVMD96">
-        Donate with PayPal
+        <img src="https://raw.githubusercontent.com/ricardoemerson/create-flutter-widgets-and-classes/master/images/donate-with-paypal.png" alt="Flutter Tools Logo" width="180"  height="80"/>
       </a>
     </td>
     <td>
       <a title="Mercado Pago" href="https://mpago.la/1LvP93a">
-        Donate with Mercado Pago
+        <img src="https://raw.githubusercontent.com/ricardoemerson/create-flutter-widgets-and-classes/master/images/donate-with-mercado-pago.png" alt="Flutter Tools Logo" width="220"  height="65"/>
       </a>
     </td>
   </tr>
@@ -75,6 +76,42 @@ Example of `settings.json`:
 Example of page or component creation using `Regular Function` or `Arrow Function`:
 
 ![Usage](images/use-arrow-function-created.png)
+
+## Configuration for create a named component using Barrel pattern
+
+By default **named components** files are created using `Barrel Pattern` that creates an index file with export of the named component created, where each component created will be included into the index file an export entrance for the new component.
+
+![Usage](images/use-barrel-settings.png)
+
+Example of `settings.json`:
+
+```json
+{
+  "createReactTSXComponent.useBarrel": true
+}
+```
+
+Example of component creation with `Use Barrel` option enabled:
+
+![Usage](images/use-barrel.png)
+
+## Configuration for create components using Export Default
+
+By default components files are created using `named export` instead `export default`.
+
+![Usage](images/use-export-default-settings.png)
+
+Example of `settings.json`:
+
+```json
+{
+  "createReactTSXComponent.useExportDefault": true
+}
+```
+
+Example of component creation with `Use Export Default` option enabled or disabled:
+
+![Usage](images/use-export-default-example.png)
 
 ## Configuration for create a page or component using React.FC.
 

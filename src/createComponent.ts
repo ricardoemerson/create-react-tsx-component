@@ -11,6 +11,7 @@ import styledFileCSS from './templates/styled-components/styledFileCSS';
 import styledFileReact from './templates/styled-components/styledFileReact';
 import styledFileReactNative from './templates/styled-components/styledFileReactNative';
 import styledFileTailwindCSSParser from './templates/styled-components/styledFileTailwindCSSParser';
+import barrelFile from './templates/typescript/barrelFile';
 import nextPage from './templates/typescript/nextPage';
 import tsReactArrowComponent from './templates/typescript/reactArrowComponent';
 import tsReactComponent from './templates/typescript/reactComponent';
@@ -97,6 +98,7 @@ export default async (
   const cssFormatIndex = stylesFormats.findIndex(style => style === cssFileFormat);
 
   let componentFileName: string;
+  const barrelFileName = `index.${fileExtension}`;
 
   if (named && !createNextPage) {
     componentFileName = `${componentName}.${fileExtension}`;
@@ -171,6 +173,39 @@ export default async (
 
     return dirWithFileName + '/' + fileName;
   };
+
+  if (useBarrel && named) {
+    const barrelFilePath = dir + '/' + barrelFileName;
+
+    if (!fs.existsSync(barrelFilePath)) {
+      await createFile(filePath(barrelFileName), barrelFile({ componentName }));
+    } else {
+      const barrelFileContent = fs.readFileSync(barrelFilePath).toString('utf-8');
+      const barrelFileContentLines = barrelFileContent.split('\n');
+
+      const exportFile = `export * from './${pascalCase(componentName)}';`;
+
+      let lastExportIndex = 0;
+
+      barrelFileContentLines.forEach((line, index) => {
+        if (line.startsWith('export')) {
+          lastExportIndex = index + 1;
+        }
+      });
+
+      barrelFileContentLines.splice(lastExportIndex, 0, exportFile);
+
+      const updatedRoutesContent = barrelFileContentLines.join('\n');
+
+      fs.writeFile(barrelFilePath, updatedRoutesContent, err => {
+        if (err) {
+          vscode.window.showErrorMessage(
+            `Not was possible update the app routes in ${barrelFilePath}.`
+          );
+        }
+      });
+    }
+  }
 
   if (mobile) {
     if (styled) {

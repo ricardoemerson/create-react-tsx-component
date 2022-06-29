@@ -161,8 +161,8 @@
         },
          "createReactTSXComponent.useBarrel": {
           "type": "boolean",
-          "default": false,
-          "markdownDescription": "Defines if the component will be created using the barrel export pattern."
+          "default": true,
+          "markdownDescription": "Defines if the **Named Components** will be created using the barrel export pattern."
         },
         "createReactTSXComponent.useExportDefault": {
           "type": "boolean",

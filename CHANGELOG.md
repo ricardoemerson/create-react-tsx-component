@@ -2,6 +2,12 @@
 
 All notable changes to the Create React and React Native TSX Component extension will be documented in this file.
 
+## [1.7.0]
+
+- The names of Next JS components and pages have rules that are applied automatically and the extension will apply the Pascal Case or Kebab Case format depending on the situation. So now just type the name of the component or page and the extension will apply the correct pattern.
+- Added the setting `useBarrel` that Defines if the Named Components will be created using the barrel pattern.
+- Added the setting `useExportDefault` that defines if the component will use export default or named export.
+
 ## [1.6.0]
 
 - The settings for using the `Next JS Framework` are now set as default.
