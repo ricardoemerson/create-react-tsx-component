@@ -2,6 +2,11 @@
 
 All notable changes to the React Tools extension will be documented in this file.
 
+## [1.9.0]
+
+- Added the menu item 🧩 Create Next or React Named Component with Styles.
+- Added the menu item 📱 Create React Native Named Component with Styles.
+
 ## [1.8.0]
 
 - Change extension name to React Tools.

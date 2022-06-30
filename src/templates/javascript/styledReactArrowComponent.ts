@@ -14,9 +14,9 @@ export default ({
 
 ${useExportDefault ? '' : 'export '}const ${componentName} = () => {
   return (
-    ${styleName === 'styles' ? `<Container>` : `<>`}
+    ${styleName?.endsWith('styles') ? `<Container>` : `<>`}
       <h1>${componentName}</h1>
-    ${styleName === 'styles' ? `</Container>` : `</>`}
+    ${styleName?.endsWith('styles') ? `</Container>` : `</>`}
   );
 };
 ${createExportDefault(componentName, useExportDefault)}`;

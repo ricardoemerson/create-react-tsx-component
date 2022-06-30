@@ -5,9 +5,15 @@
     </a>
 </p>
 
-# What's new in React Tools 1.8.0
+# What's new in React Tools 1.9.0
+- Added the menu item 🧩 Create Next or React Named Component with Styles.
+- Added the menu item 📱 Create React Native Named Component with Styles.
 
+# What's new in React Tools 1.8.0
 - Change extension name to React Tools.
+- The menu items for React JS, Next JS and React Native was separeted in groups.
+
+# What's new in React Tools 1.7.0
 - Change icons of the menu items as bellow:
   🧩 Create Next or React Component
   🧩 Create Next or React Component with Styles
@@ -16,7 +22,6 @@
   📱 Create React Native Component
   📱 Create React Native Component with Styles
   📱 Create React Native Named Component
-- The menu items for React JS, Next JS and React Native was separeted in groups.
 - The names of Next JS components and pages have rules that are applied automatically and the extension will apply the Pascal Case or Kebab Case format depending on the situation. So now just type the name of the component or page and the extension will apply the correct pattern.
 - Added the setting `useBarrel` that Defines if the **Named Components** will be created using the barrel pattern.
 - Added the setting `useExportDefault` that defines if the component will use export default or named export.
@@ -204,10 +209,12 @@ You can create a Next, React or React Native Component either by typing in the v
 - `Create Next or React Component`
 - `Create Next or React Component with Styles`
 - `Create Next or React Named Component`
+- `Create Next or React Named Component with Styles`
 - `Create Next Page`
 - `Create React Native Component`
 - `Create React Native Component with Styles`
 - `Create React Native Named Component`
+- `Create React Native Named Component with Styles`
 
 ### All Commands (Ctrl+Shift+P or Cmd+Shift+P):
 
@@ -263,9 +270,27 @@ This will create a file with the component name entered.
 
 ## Results
 
-`Header.tsx`
+`Card.tsx`
 
 ![Usage](images/named-component-created.png)
+
+## Create Next or React Named Component with Styles Example:
+
+Select the folder when the component will be created and choose `Create Next or React Named Component with Styles` and enter the name of the component to be created.
+
+![Usage](images/name-of-component.png)
+
+This will create a file with the component name entered and the file with styles.
+
+## Results
+
+`Card.tsx`
+
+![Usage](images/named-styled-component-created.png)
+
+`Card.styles.ts`
+
+![Usage](images/named-styled-created.png)
 
 You can also create components without using `Styled Components`.
 

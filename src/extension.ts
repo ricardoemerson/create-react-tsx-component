@@ -46,6 +46,12 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('extension.create-react-named-component', args => {
       handleCreateComponent({ args, named: true });
     }),
+    vscode.commands.registerCommand(
+      'extension.create-react-named-styled-component',
+      args => {
+        handleCreateComponent({ args, styled: true, named: true });
+      }
+    ),
     vscode.commands.registerCommand('extension.create-next-page', args => {
       handleCreateComponent({ args, named: true, createNextPage: true });
     }),
@@ -62,6 +68,12 @@ export function activate(context: vscode.ExtensionContext) {
       'extension.create-react-native-named-component',
       args => {
         handleCreateComponent({ args, named: true, mobile: true });
+      }
+    ),
+    vscode.commands.registerCommand(
+      'extension.create-react-native-named-styled-component',
+      args => {
+        handleCreateComponent({ args, styled: true, named: true, mobile: true });
       }
     ),
   ];

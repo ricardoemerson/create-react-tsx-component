@@ -6,7 +6,8 @@ export default function createStylesImport(
   usesStylesTailwindCSSParser?: boolean,
   componentName?: string
 ) {
-  if (styleName === 'styles') {
+  console.log('styleName: ', styleName);
+  if (styleName?.endsWith('styles')) {
     if (usesStylesTailwindCSSParser) {
       return `import ${camelCase(componentName)}Styles from './${styleName}';`;
     } else {

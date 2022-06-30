@@ -17,9 +17,9 @@ ${useExportDefault ? '' : 'export '}const ${componentName}${
     useReactFC ? ': React.FC' : ''
   } = () => {
   return (
-    ${styleName === 'styles' ? `<Container>` : `<>`}
+    ${styleName?.endsWith('styles') ? `<Container>` : `<>`}
       <h1>${componentName}</h1>
-    ${styleName === 'styles' ? `</Container>` : `</>`}
+    ${styleName?.endsWith('styles') ? `</Container>` : `</>`}
   );
 };
 ${createExportDefault(componentName, useExportDefault)}`;

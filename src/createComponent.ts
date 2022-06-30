@@ -64,31 +64,31 @@ export default async (
 
   if (useCSSModule) {
     stylesFileNames = [
-      'styles.ts',
-      'styles.module.scss',
-      'styles.less',
-      'styles.module.css',
+      `${named ? componentName + '.' : ''}styles.ts`,
+      `${named ? componentName + '.' : ''}styles.module.scss`,
+      `${named ? componentName + '.' : ''}styles.less`,
+      `${named ? componentName + '.' : ''}styles.module.css`,
     ];
     importStylesFileNames = [
-      'styles',
-      'styles.module.scss',
-      'styles.less',
-      'styles.module.css',
+      `${named ? componentName + '.' : ''}styles`,
+      `${named ? componentName + '.' : ''}styles.module.scss`,
+      `${named ? componentName + '.' : ''}styles.less`,
+      `${named ? componentName + '.' : ''}styles.module.css`,
     ];
   } else {
     stylesFileNames = [
-      'styles.ts',
-      'styles.scss',
-      'styles.less',
-      'styles.css',
-      'styles.ts',
+      `${named ? componentName + '.' : ''}styles.ts`,
+      `${named ? componentName + '.' : ''}styles.scss`,
+      `${named ? componentName + '.' : ''}styles.less`,
+      `${named ? componentName + '.' : ''}styles.css`,
+      `${named ? componentName + '.' : ''}styles.ts`,
     ];
     importStylesFileNames = [
-      'styles',
-      'styles.scss',
-      'styles.less',
-      'styles.css',
-      'styles',
+      `${named ? componentName + '.' : ''}styles`,
+      `${named ? componentName + '.' : ''}styles.scss`,
+      `${named ? componentName + '.' : ''}styles.less`,
+      `${named ? componentName + '.' : ''}styles.css`,
+      `${named ? componentName + '.' : ''}styles`,
     ];
   }
 
@@ -110,7 +110,7 @@ export default async (
 
   const styledFileName =
     ['jsx', 'js'].includes(fileExtension) && cssFormatIndex === 0
-      ? 'styles.js'
+      ? `${named ? componentName + '.' : ''}styles.js`
       : stylesFileNames[cssFormatIndex];
   const styleName = importStylesFileNames[cssFormatIndex];
 

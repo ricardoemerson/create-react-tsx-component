@@ -35,14 +35,20 @@ ${useExportDefault ? '' : 'export '}function ${pascalCase(componentName)}({ chil
       : ''
   }
   return (
-    ${styleName === 'styles' && !usesStylesTailwindCSSParser ? `<Container>` : `<>`}
+    ${
+      styleName?.endsWith('styles') && !usesStylesTailwindCSSParser ? `<Container>` : `<>`
+    }
       <h1${
         usesStylesTailwindCSSParser
           ? ` className={stylesFor${pascalCase(componentName)}}`
           : ''
       }>${componentName}</h1>
       {children}
-    ${styleName === 'styles' && !usesStylesTailwindCSSParser ? `</Container>` : `</>`}
+    ${
+      styleName?.endsWith('styles') && !usesStylesTailwindCSSParser
+        ? `</Container>`
+        : `</>`
+    }
   );
 }
 ${createExportDefault(componentName, useExportDefault)}`;
