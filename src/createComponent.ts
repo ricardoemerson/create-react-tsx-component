@@ -214,6 +214,7 @@ export default async (
           filePath(componentFileName),
           styledReactNativeArrowComponent({
             componentName,
+            styleName,
             useReactImport,
             useReactFC,
             useExportDefault,
@@ -224,7 +225,12 @@ export default async (
       } else {
         await createFile(
           filePath(componentFileName),
-          styledReactNativeComponent({ componentName, useReactImport, useExportDefault })
+          styledReactNativeComponent({
+            componentName,
+            styleName,
+            useReactImport,
+            useExportDefault,
+          })
         );
 
         await createFile(filePath(styledFileName), styledFileReactNative());

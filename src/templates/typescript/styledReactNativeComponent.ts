@@ -3,10 +3,15 @@ import createExportDefault from '../shared/functions/create-export-default';
 import creatReactImport from '../shared/functions/create-react-import';
 import pascalCase from '../shared/functions/pascal-case';
 
-export default ({ componentName, useReactImport, useExportDefault }: CreateComponent) =>
+export default ({
+  componentName,
+  styleName,
+  useReactImport,
+  useExportDefault,
+}: CreateComponent) =>
   `${creatReactImport(useReactImport, true, true)}import { Text } from 'react-native';
 
-import { Container } from './styles';
+import { Container } from './${styleName}';
 
 interface ${pascalCase(componentName)}Props {
   children: ReactNode;

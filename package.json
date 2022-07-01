@@ -2,7 +2,7 @@
   "name": "create-react-tsx-component",
   "displayName": "React Tools",
   "description": "Extension that creates Next, React and React Native Components using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",

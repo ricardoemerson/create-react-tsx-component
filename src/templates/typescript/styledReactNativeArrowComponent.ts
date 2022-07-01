@@ -4,13 +4,14 @@ import creatReactImport from '../shared/functions/create-react-import';
 
 export default ({
   componentName,
+  styleName,
   useReactImport,
   useReactFC,
   useExportDefault,
 }: CreateComponent) =>
   `${creatReactImport(useReactImport, false, true)}import { Text } from 'react-native';
 
-import { Container } from './styles';
+import { Container } from './${styleName}';
 
 ${useExportDefault ? '' : 'export '}const ${componentName}${
     useReactFC ? ': React.FC' : ''
