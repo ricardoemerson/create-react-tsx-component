@@ -1,6 +1,6 @@
 import CreateComponent from '../interfaces/CreateComponent';
 import createExportDefault from '../shared/functions/create-export-default';
-import creatReactImport from '../shared/functions/create-react-import';
+import createReactImport from '../shared/functions/create-react-import';
 import createStylesImport from '../shared/functions/create-styles-import';
 import pascalCase from '../shared/functions/pascal-case';
 
@@ -11,41 +11,47 @@ export default ({
   styleName,
   useReactImport,
   useCSSModule,
-  usesStylesTailwindCSSParser,
+  usesStylesCVA,
   useExportDefault,
 }: CreateComponent) =>
-  `${creatReactImport(useReactImport, true)}${createStylesImport(
+  `${createReactImport(useReactImport, true)}${createStylesImport(
     styleName,
     useCSSModule,
-    usesStylesTailwindCSSParser,
+    usesStylesCVA,
     componentName
   )}
 
-interface ${pascalCase(componentName)}Props {
-  children: ReactNode;${usesStylesTailwindCSSParser ? '\n  className?: string;' : ''}
+${
+usesStylesCVA
+  ? `interface ${pascalCase(componentName)}Props extends VariantProps<typeof ${camelCase(componentName)}Styles> {
+  children: ReactNode;${usesStylesCVA ? '\n  className?: string;' : ''}
+}`
+  : `interface ${pascalCase(componentName)}Props {
+  children: ReactNode;
+}`
 }
 
 ${useExportDefault ? '' : 'export '}function ${pascalCase(componentName)}({ children${
-    usesStylesTailwindCSSParser ? `, className = ''` : ''
+    usesStylesCVA ? `, className = ''` : ''
   } }: ${pascalCase(componentName)}Props) {${
-    usesStylesTailwindCSSParser
-      ? `\n  const stylesFor${pascalCase(componentName)} = ${camelCase(
+    usesStylesCVA
+      ? `\n  const stylesFor${pascalCase(componentName)} = cn(${camelCase(
           componentName
-        )}Styles({ className });\n`
+        )}Styles({ className }));\n`
       : ''
   }
   return (
     ${
-      styleName?.endsWith('styles') && !usesStylesTailwindCSSParser ? `<Container>` : `<>`
+      styleName?.endsWith('styles') && !usesStylesCVA ? `<Container>` : `<>`
     }
       <h1${
-        usesStylesTailwindCSSParser
+        usesStylesCVA
           ? ` className={stylesFor${pascalCase(componentName)}}`
           : ''
       }>${componentName}</h1>
       {children}
     ${
-      styleName?.endsWith('styles') && !usesStylesTailwindCSSParser
+      styleName?.endsWith('styles') && !usesStylesCVA
         ? `</Container>`
         : `</>`
     }

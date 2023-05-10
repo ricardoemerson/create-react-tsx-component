@@ -10,7 +10,7 @@ import pascalCase from './templates/shared/functions/pascal-case';
 import styledFileCSS from './templates/styled-components/styledFileCSS';
 import styledFileReact from './templates/styled-components/styledFileReact';
 import styledFileReactNative from './templates/styled-components/styledFileReactNative';
-import styledFileTailwindCSSParser from './templates/styled-components/styledFileTailwindCSSParser';
+import styledFileCVA from './templates/styled-components/styledFileCVA';
 import barrelFile from './templates/typescript/barrelFile';
 import nextPage from './templates/typescript/nextPage';
 import tsReactArrowComponent from './templates/typescript/reactArrowComponent';
@@ -53,7 +53,7 @@ export default async (
   const useBarrel = config.get('useBarrel') as boolean;
 
   const componentsExtensions = ['tsx', 'jsx', 'js'];
-  const stylesFormats = ['Styled Components', 'SCSS', 'LESS', 'CSS', 'TailwindCSSParser'];
+  const stylesFormats = ['Styled Components', 'SCSS', 'LESS', 'CSS', 'CVA - Class Variance Authority'];
 
   const componentsFileNames = ['index.tsx', 'index.jsx', 'index.js'];
 
@@ -114,7 +114,7 @@ export default async (
       : stylesFileNames[cssFormatIndex];
   const styleName = importStylesFileNames[cssFormatIndex];
 
-  const usesStylesTailwindCSSParser = cssFileFormat === 'TailwindCSSParser';
+  const usesStylesCVA = cssFileFormat === 'CVA - Class Variance Authority';
 
   const styledTemplate = cssFormatIndex === 0 ? styledFileReact : styledFileCSS;
 
@@ -277,15 +277,15 @@ export default async (
             styleName,
             useReactImport,
             useCSSModule,
-            usesStylesTailwindCSSParser,
+            usesStylesCVA,
             useExportDefault,
           })
         );
 
-        if (usesStylesTailwindCSSParser) {
+        if (usesStylesCVA) {
           await createFile(
             filePath(styledFileName),
-            styledFileTailwindCSSParser({ componentName, useExportDefault })
+            styledFileCVA({ componentName, useExportDefault })
           );
         } else {
           await createFile(filePath(styledFileName), styledTemplate());

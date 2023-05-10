@@ -1,6 +1,6 @@
 import CreateComponent from '../interfaces/CreateComponent';
 import createExportDefault from '../shared/functions/create-export-default';
-import creatReactImport from '../shared/functions/create-react-import';
+import createReactImport from '../shared/functions/create-react-import';
 import pascalCase from '../shared/functions/pascal-case';
 
 export default ({
@@ -9,7 +9,7 @@ export default ({
   useReactImport,
   useExportDefault,
 }: CreateComponent) =>
-  `${creatReactImport(useReactImport, true, true)}import { Text } from 'react-native';
+  `${createReactImport(useReactImport, true, true)}import { Text } from 'react-native';
 
 import { Container } from './${styleName}';
 

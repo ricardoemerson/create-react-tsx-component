@@ -2,7 +2,7 @@
   "name": "create-react-tsx-component",
   "displayName": "React Tools",
   "description": "Extension that creates Next, React and React Native Components using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
@@ -29,7 +29,9 @@
     "sass",
     "less",
     "css",
-    "module"
+    "module",
+    "cva",
+    "class-variance-authority"
   ],
   "engines": {
     "vscode": "^1.17.0"
@@ -154,10 +156,10 @@
             "SCSS",
             "LESS",
             "CSS",
-            "TailwindCSSParser"
+            "CVA - Class Variance Authority"
           ],
           "default": "Styled Components",
-          "markdownDescription": "Default style file format for Next, React and React Native (only Styled Components) Components. The TailwindCSSParser it is for my personal use."
+          "markdownDescription": "Default style file format for Next, React and React Native (only Styled Components) Components."
         },
         "createReactTSXComponent.useArrowFunctionComponent": {
           "type": "boolean",
@@ -177,7 +179,7 @@
         "createReactTSXComponent.useCSSModule": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Defines if CSS file name will be sufixed with `.module.css` or `.module.scss`. **Important:** Only applicable if option `Styles Format` is `CSS` or `SCSS`."
+          "markdownDescription": "Defines if CSS file name will be suffixed with `.module.css` or `.module.scss`. **Important:** Only applicable if option `Styles Format` is `CSS` or `SCSS`."
         },
          "createReactTSXComponent.useBarrel": {
           "type": "boolean",

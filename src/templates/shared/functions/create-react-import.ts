@@ -1,4 +1,4 @@
-export default function creatReactImport(
+export default function createReactImport(
   useReactImport?: boolean,
   importReactNode = false,
   isReactNativeTemplate = false

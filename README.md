@@ -5,6 +5,22 @@
     </a>
 </p>
 
+# What's new in React Tools 1.10.0
+- Added to setting `stylesFormat` the option `CVA - Class Variance Authority` to allow create complex components using this package.
+  To use `CVA - Class Variance Authority` you need to add to your `package.json` the packages:
+  - `class-variance-authority`;
+  - `clsx`;
+  - `tailwind-merge`.
+  And create this function in `src/services/tailwind-css-util.ts`:
+  ```ts
+  import { ClassValue, clsx } from 'clsx';
+  import { twMerge } from 'tailwind-merge';
+
+  export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
+  }
+  ```
+
 # What's new in React Tools 1.9.0
 - Added the menu item 🧩 Create Next or React Named Component with Styles.
 - Added the menu item 📱 Create React Native Named Component with Styles.
@@ -169,9 +185,9 @@ Example of component creation using `import React from 'react';` or not:
 
 ![Usage](images/use-react-import-created.png)
 
-## Configuration for the Style File (Styled Components, SCSS, LESS or CSS)
+## Configuration for the Style File (Styled Components, SCSS, LESS, CSS or CVA - Class Variance Authority)
 
-It is also possible to create components **just for React** using SASS (`.scss`) or CSS (`.css`) to define component styles.
+It is also possible to create components **just for React** using SASS (`.scss`), CSS (`.css`) or using (`CVA - Class Variance Authority`) to define component styles.
 
 ![Usage](images/styles-settings.png)
 
@@ -179,11 +195,9 @@ Example of `settings.json`:
 
 ```json
 {
-  "createReactTSXComponent.stylesFormat": "Styled Components|SCSS|LESS|CSS"
+  "createReactTSXComponent.stylesFormat": "Styled Components|SCSS|LESS|CSS|CVA - Class Variance Authority"
 }
 ```
-
-> The option `TailwindCSSParser` it is only for my personal use and can not be used.
 
 ## Configuration for use (CSS Module with SCSS or CSS)
 
@@ -242,6 +256,26 @@ This will create a folder with the component name entered containing the compone
 `Card/styles.ts`
 
 ![Usage](images/styled-created.png)
+
+## Create Next or React Component with Styles using CVA - Class Variance Authority Example:
+
+> First in **stylesFormat** present in **React Tools Settings**, choose **CVA - Class Variance Authority**.
+
+Select the folder when the component will be created and choose `Create Next or React Named Component with Styles` and enter the name of the component to be created.
+
+![Usage](images/name-of-component.png)
+
+This will create a file with the component name entered and the file with styles.
+
+## Results
+
+`Card/index.tsx`
+
+![Usage](images/name-of-component-cva.png)
+
+`Card/styles.ts`
+
+![Usage](images/styled-component-created-cva.png)
 
 ## Create React Native Component with Styles Example:
 

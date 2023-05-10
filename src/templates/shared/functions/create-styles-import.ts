@@ -3,13 +3,17 @@ import { camelCase } from 'lodash';
 export default function createStylesImport(
   styleName?: string,
   useCSSModule?: boolean,
-  usesStylesTailwindCSSParser?: boolean,
+  usesStylesCVA?: boolean,
   componentName?: string
 ) {
   console.log('styleName: ', styleName);
   if (styleName?.endsWith('styles')) {
-    if (usesStylesTailwindCSSParser) {
-      return `import ${camelCase(componentName)}Styles from './${styleName}';`;
+    if (usesStylesCVA) {
+      return `import { VariantProps } from 'class-variance-authority';
+
+import { cn } from '@services/tailwind-css-util';
+
+import { ${camelCase(componentName)}Styles } from './${styleName}';`;
     } else {
       return `import { Container } from './${styleName}';`;
     }

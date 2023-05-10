@@ -1,6 +1,6 @@
 import CreateComponent from '../interfaces/CreateComponent';
 import createExportDefault from '../shared/functions/create-export-default';
-import creatReactImport from '../shared/functions/create-react-import';
+import createReactImport from '../shared/functions/create-react-import';
 
 export default ({
   componentName,
@@ -8,7 +8,7 @@ export default ({
   useReactFC,
   useExportDefault,
 }: CreateComponent) =>
-  `${creatReactImport(
+  `${createReactImport(
     useReactImport,
     false,
     true
