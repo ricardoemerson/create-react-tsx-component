@@ -7,10 +7,13 @@
 
 # What's new in React Tools 1.10.0
 - Added to setting `stylesFormat` the option `CVA - Class Variance Authority` to allow create complex components using this package.
+
   To use `CVA - Class Variance Authority` you need to add to your `package.json` the packages:
   - `class-variance-authority`;
   - `clsx`;
   - `tailwind-merge`.
+
+
   And create this function in `src/services/tailwind-css-util.ts`:
   ```ts
   import { ClassValue, clsx } from 'clsx';
