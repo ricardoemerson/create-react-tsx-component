@@ -2,7 +2,7 @@
   "name": "create-react-tsx-component",
   "displayName": "React Tools",
   "description": "Extension that creates Next, React and React Native Components using Typescript or Javascript with Styled Components, SASS, LESS or CSS format.",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "publisher": "ricardo-emerson",
   "repository": "https://github.com/ricardoemerson/create-react-tsx-component",
   "icon": "images/logo.png",
@@ -34,7 +34,10 @@
     "class-variance-authority"
   ],
   "engines": {
-    "vscode": "^1.17.0"
+    "vscode": "^1.65.0"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/ricardoemerson"
   },
   "activationEvents": [
     "onCommand:extension.create-next-page",
@@ -203,6 +206,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.168",
+    "@types/mkdirp": "^1.0.2",
     "@types/node": "^12.6.8",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
@@ -214,10 +218,11 @@
     "prettier": "^2.7.1",
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",
-    "vscode": "^1.1.28"
+    "vscode": "^1.1.37"
   },
   "dependencies": {
     "fs": "^0.0.1-security",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4"
   }
 }

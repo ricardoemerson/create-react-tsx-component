@@ -2,6 +2,10 @@
 
 All notable changes to the React Tools extension will be documented in this file.
 
+## [1.11.0]
+
+- Added notification message for extension updates.
+
 ## [1.10.0]
 
 - Added to setting `stylesFormat` the option `CVA - Class Variance Authority` to allow create complex components using this package.
