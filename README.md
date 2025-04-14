@@ -5,34 +5,117 @@
     </a>
 </p>
 
+# What's new in React Tools 1.12.0
+
+## ✨Important Update: License Change for the Extension
+
+The React Tools extension is now fully paid. Since its launch, this extension has been designed to streamline and
+enhance React development in Visual Studio Code. Initially offered for free, then under a freemium model, we are now
+taking the next step to ensure its sustainability and continued development.
+
+### 💡 Why this change?
+
+Maintaining and improving an extension like React Tools requires ongoing time and resources. With the paid model, we
+can:
+
+✅ Continuously improve and add new features.  
+✅ Provide better support for users.  
+✅ Deliver regular updates to keep the extension compatible with new versions of React and Visual Studio Code.
+
+### 🔑 How to get your subscription?
+
+To continue using React Tools Pro and gain access to
+exclusive features like advanced framework support, custom template
+generation, and much more, you can purchase a paid license through the [Extensions Hub](https://extensionshub.com.br),
+where we offer flexible payment options.
+
+### How to get started?
+
+Visit [https://extensionshub.com.br](https://extensionshub.com.br) now, where you can choose your plan, and unlock all
+premium
+features in just a few clicks.
+
+#### How to Register Your Subscription
+
+Ready to unlock the premium features of **React Tools Pro** in Visual Studio Code? Follow these simple steps to
+register your subscription
+using your subscription key:
+
+1. **Open the Command Palette**
+
+- In Visual Studio Code, press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open the Command
+  Palette.
+
+2. **Select the Subscription Option in the Command Palette**
+
+- Type "React Tools Pro" and select:  
+  ✏️ **Add/Update Subscription Key for React Tools Pro**
+
+3. **Enter Your Subscription Key that you copied from Extensions Hub**
+
+- A text input will appear. Paste the subscription key you received after purchasing your plan
+  at [https://extensionshub.com.br](https://extensionshub.com.br).
+- Press `Enter` to submit.
+
+4. **Name Your Device**
+
+- Another input will pop up. Enter a name for your device (e.g., "Work Laptop" or "Home PC") to help you identify it
+  later.
+- Press `Enter` to confirm.
+
+5. **Enjoy Premium Features!**
+
+- Once validated, you’ll have instant access to all **Pro features 🎖️**. Start boosting your React workflow right
+  away!
+
+🙌 Thank you for your support!
+
+We recognize that this change, making the extension fully paid, may impact some users, but we believe it will allow the
+extension to
+continue growing and providing even more value to the React community.
+
+Thank you for being part of this journey! If you have any questions, feel free to reach out. 🚀
+!
+
+Best regards,
+
+**Ricardo Emerson**    
+Extensions Hub Team
+---
+
 # What's new in React Tools 1.10.0
-- Added to setting `stylesFormat` the option `CVA - Class Variance Authority` to allow create complex components using this package.
+
+- Added to setting `stylesFormat` the option `CVA - Class Variance Authority` to allow create complex components using
+  this package.
 
   To use `CVA - Class Variance Authority` you need to add to your `package.json` the packages:
   - `class-variance-authority`;
   - `clsx`;
   - `tailwind-merge`.
 
+And create this function in `src/services/tailwind-css-util.ts`:
 
-  And create this function in `src/services/tailwind-css-util.ts`:
   ```ts
-  import { ClassValue, clsx } from 'clsx';
-  import { twMerge } from 'tailwind-merge';
+  import {ClassValue, clsx} from 'clsx';
+import {twMerge} from 'tailwind-merge';
 
-  export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-  }
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
   ```
 
 # What's new in React Tools 1.9.0
+
 - Added the menu item 🧩 Create Next or React Named Component with Styles.
 - Added the menu item 📱 Create React Native Named Component with Styles.
 
 # What's new in React Tools 1.8.0
+
 - Change extension name to React Tools.
 - The menu items for React JS, Next JS and React Native was separeted in groups.
 
 # What's new in React Tools 1.7.0
+
 - Change icons of the menu items as bellow:
   🧩 Create Next or React Component
   🧩 Create Next or React Component with Styles
@@ -41,28 +124,11 @@
   📱 Create React Native Component
   📱 Create React Native Component with Styles
   📱 Create React Native Named Component
-- The names of Next JS components and pages have rules that are applied automatically and the extension will apply the Pascal Case or Kebab Case format depending on the situation. So now just type the name of the component or page and the extension will apply the correct pattern.
+- The names of Next JS components and pages have rules that are applied automatically and the extension will apply the
+  Pascal Case or Kebab Case format depending on the situation. So now just type the name of the component or page and
+  the extension will apply the correct pattern.
 - Added the setting `useBarrel` that Defines if the **Named Components** will be created using the barrel pattern.
 - Added the setting `useExportDefault` that defines if the component will use export default or named export.
-
-## Support
-
-**React Tools** is an extension created for **Visual Studio Code**. If you find it useful, please consider supporting it.
-
-<table align="center" width="100%" border="0">
-  <tr>
-    <td >
-      <a title="PayPal" href="https://www.paypal.com/donate?hosted_button_id=X26H7L6AVMD96">
-        <img src="https://raw.githubusercontent.com/ricardoemerson/create-flutter-widgets-and-classes/master/images/donate-with-paypal.png" alt="Flutter Tools Logo" width="180"  height="80"/>
-      </a>
-    </td>
-    <td>
-      <a title="Mercado Pago" href="https://mpago.la/1LvP93a">
-        <img src="https://raw.githubusercontent.com/ricardoemerson/create-flutter-widgets-and-classes/master/images/donate-with-mercado-pago.png" alt="Flutter Tools Logo" width="220"  height="65"/>
-      </a>
-    </td>
-  </tr>
-</table>
 
 # React Tools
 
@@ -72,7 +138,8 @@
 ![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/ricardo-emerson.create-react-tsx-component.svg?style=flat-square)
 [![GitHub](https://img.shields.io/github/stars/ricardoemerson/create-react-tsx-component.svg?style=flat-square)](https://github.com/ricardoemerson/create-react-tsx-component)
 
-This extension creates a Functional Component for Next, React and React Native using Typescript or Javascript with Styled Components, SASS, LESS or CSS.
+This extension creates a Functional Component for Next, React and React Native using Typescript or Javascript with
+Styled Components, SASS, LESS or CSS.
 
 ## Settings
 
@@ -82,7 +149,8 @@ These are all available configurations with their default values.
 
 ## Configuration for the Page or Component File (tsx, jsx or js)
 
-By default pages or components files are created using Typescript with files extension `.tsx`. It is also possible to create pages or components with Javascript with files extension `.jsx` or `.js`.
+By default pages or components files are created using Typescript with files extension `.tsx`. It is also possible to
+create pages or components with Javascript with files extension `.jsx` or `.js`.
 
 ![Usage](images/component-settings.png)
 
@@ -96,7 +164,8 @@ Example of `settings.json`:
 
 ## Configuration for create a component using Regular Function or Arrow Function
 
-By default pages or components files are created using `Regular Function`. It is also possible to create pages or components using `Arrow Function`.
+By default pages or components files are created using `Regular Function`. It is also possible to create pages or
+components using `Arrow Function`.
 
 ![Usage](images/use-arrow-function-settings.png)
 
@@ -114,7 +183,9 @@ Example of page or component creation using `Regular Function` or `Arrow Functio
 
 ## Configuration for create a named component using Barrel pattern
 
-By default **named components** files are created using `Barrel Pattern` that creates an index file with export of the named component created, where each component created will be included into the index file an export entrance for the new component.
+By default **named components** files are created using `Barrel Pattern` that creates an index file with export of the
+named component created, where each component created will be included into the index file an export entrance for the
+new component.
 
 ![Usage](images/use-barrel-settings.png)
 
@@ -150,7 +221,8 @@ Example of component creation with `Use Export Default` option enabled or disabl
 
 ## Configuration for create a page or component using React.FC.
 
-By default pages or components files are created whithout uses `React.FC`. It is also possible to create pages or components using `React.FC`.
+By default pages or components files are created whithout uses `React.FC`. It is also possible to create pages or
+components using `React.FC`.
 
 **Important:** This option it is only applicable if option `Use Arrow Function Component` is enabled.
 
@@ -170,7 +242,8 @@ Example of page or component creation using `React.FC` or not:
 
 ## Configuration for create a component using import for React to use JSX.
 
-By default pages or components files are created whithout uses the React import (`import React from 'react';`) it the beginning of the component. It is also possible to create pages or components using the React import.
+By default pages or components files are created whithout uses the React import (`import React from 'react';`) it the
+beginning of the component. It is also possible to create pages or components using the React import.
 
 This option should only be used if you are using **React 16 or previous version**.
 
@@ -190,7 +263,8 @@ Example of component creation using `import React from 'react';` or not:
 
 ## Configuration for the Style File (Styled Components, SCSS, LESS, CSS or CVA - Class Variance Authority)
 
-It is also possible to create components **just for React** using SASS (`.scss`), CSS (`.css`) or using (`CVA - Class Variance Authority`) to define component styles.
+It is also possible to create components **just for React** using SASS (`.scss`), CSS (`.css`) or using (
+`CVA - Class Variance Authority`) to define component styles.
 
 ![Usage](images/styles-settings.png)
 
@@ -204,7 +278,8 @@ Example of `settings.json`:
 
 ## Configuration for use (CSS Module with SCSS or CSS)
 
-It is also possible use **CSS Module** in the creation of styles for your components **just for SCSS and CSS**. This option, which by default is disabled, adds the suffix `.module.css` or `.module.scss` to the style files created.
+It is also possible use **CSS Module** in the creation of styles for your components **just for SCSS and CSS**. This
+option, which by default is disabled, adds the suffix `.module.css` or `.module.scss` to the style files created.
 
 ![Usage](images/use-css-module-settings.png)
 
@@ -222,7 +297,8 @@ Example of component creation using styles format `CSS` and `useCSSModule` enabl
 
 # Usage Examples
 
-You can create a Next, React or React Native Component either by typing in the vscode command palette or by right-clicking any folder in the tree view and use the followed options:
+You can create a Next, React or React Native Component either by typing in the vscode command palette or by
+right-clicking any folder in the tree view and use the followed options:
 
 - `Create Next or React Component`
 - `Create Next or React Component with Styles`
@@ -244,11 +320,13 @@ You can create a Next, React or React Native Component either by typing in the v
 
 ## Create Next or React Component with Styles Example:
 
-Select the folder when the component will be created and choose `Create Next or React Component with Styles` and enter the name of the component to be created.
+Select the folder when the component will be created and choose `Create Next or React Component with Styles` and enter
+the name of the component to be created.
 
 ![Usage](images/name-of-component.png)
 
-This will create a folder with the component name entered containing the component's `index.tsx` file and the `styles.ts` file for defining the component styles.
+This will create a folder with the component name entered containing the component's `index.tsx` file and the
+`styles.ts` file for defining the component styles.
 
 ## Results
 
@@ -264,7 +342,8 @@ This will create a folder with the component name entered containing the compone
 
 > First in **stylesFormat** present in **React Tools Settings**, choose **CVA - Class Variance Authority**.
 
-Select the folder when the component will be created and choose `Create Next or React Named Component with Styles` and enter the name of the component to be created.
+Select the folder when the component will be created and choose `Create Next or React Named Component with Styles` and
+enter the name of the component to be created.
 
 ![Usage](images/name-of-component.png)
 
@@ -282,11 +361,13 @@ This will create a file with the component name entered and the file with styles
 
 ## Create React Native Component with Styles Example:
 
-Select the folder when the component will be created and choose `Create React Native Component with Styles` and enter the name of the component to be created.
+Select the folder when the component will be created and choose `Create React Native Component with Styles` and enter
+the name of the component to be created.
 
 ![Usage](images/name-of-component.png)
 
-This will create a folder with the component name entered containing the component's `index.tsx` file and the `styles.ts` file for defining the component styles.
+This will create a folder with the component name entered containing the component's `index.tsx` file and the
+`styles.ts` file for defining the component styles.
 
 ## Results
 
@@ -300,7 +381,8 @@ This will create a folder with the component name entered containing the compone
 
 ## Create Next or React Named Component Example:
 
-Select the folder when the component will be created and choose `Create Next or React Named Component` and enter the name of the component to be created.
+Select the folder when the component will be created and choose `Create Next or React Named Component` and enter the
+name of the component to be created.
 
 ![Usage](images/name-of-component.png)
 
@@ -314,7 +396,8 @@ This will create a file with the component name entered.
 
 ## Create Next or React Named Component with Styles Example:
 
-Select the folder when the component will be created and choose `Create Next or React Named Component with Styles` and enter the name of the component to be created.
+Select the folder when the component will be created and choose `Create Next or React Named Component with Styles` and
+enter the name of the component to be created.
 
 ![Usage](images/name-of-component.png)
 
@@ -334,7 +417,8 @@ You can also create components without using `Styled Components`.
 
 ## Create Next Page Example:
 
-Select the folder when the page will be created and choose `Create Next Page` and enter the name of the page to be created.
+Select the folder when the page will be created and choose `Create Next Page` and enter the name of the page to be
+created.
 
 ![Usage](images/name-of-page.png)
 
